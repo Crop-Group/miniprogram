@@ -1,3 +1,4 @@
+import 'windi.css';
 import Taro from '@tarojs/taro';
 import { Component } from 'react';
 import './app.scss';
