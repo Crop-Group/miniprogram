@@ -1,5 +1,6 @@
 {
   "miniprogramRoot": "dist/",
+  "cloudfunctionRoot": "cloud/",
   "projectname": "miniprogram",
   "description": "Crop Group Miniprogram",
   "appid": "wxa04637c865f18984",
