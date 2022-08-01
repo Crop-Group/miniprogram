@@ -15,9 +15,12 @@ export default class Index extends Component {
 
   render() {
     return (
-      <View className='h-screen flex items-center justify-center'>
-        <Text>Hello world!</Text>
-      </View>
+      <>
+        <View className='background-img' />
+        <View className='h-screen flex items-center justify-center'>
+          <Text>Hello world!</Text>
+        </View>
+      </>
     );
   }
 }
