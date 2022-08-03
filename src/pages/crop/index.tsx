@@ -19,7 +19,7 @@ export default class Index extends Component {
     return (
       <Layout
         itemsCenter
-        menuBarElement={<View className='flex justify-center items-center h-full'>发现</View>}
+        menuBarElement={<View className='flex justify-center items-center h-full'>养谷</View>}
         background={<HomeBackGround />}
       >
         <Text>Hello world!</Text>
