@@ -54,8 +54,15 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
   return (
     <React.Fragment>
       {background && <View className='fixed -z-1 h-full w-full'>{background}</View>}
-      <View style={{ paddingTop: `${statusbarHeight + (menuBarElement ? 0 : pillHeight)}px` }}>
-        {menuBarElement && <View style={{ height: `${pillHeight}px`, width: '100%' }}>{menuBarElement}</View>}
+      <View style={{ paddingTop: `${menuBarElement ? 0 : statusbarHeight}px` }}>
+        {menuBarElement && (
+          <View
+            className='sticky top-0'
+            style={{ height: `${pillHeight + statusbarHeight}px`, paddingTop: `${statusbarHeight}px`, width: '100%' }}
+          >
+            {menuBarElement}
+          </View>
+        )}
         <View className={viewClass}>{children}</View>
       </View>
     </React.Fragment>
