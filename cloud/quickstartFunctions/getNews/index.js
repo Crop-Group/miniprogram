@@ -4,18 +4,16 @@
 const cloud = require('wx-server-sdk');
 
 cloud.init({
-  env: cloud.DYNAMIC_CURRENT_ENV
+  env: cloud.DYNAMIC_CURRENT_ENV,
 });
 
 const db = cloud.database();
 
 exports.main = async (event, context) => {
   // 获取新闻内容
-    let news = await db.collection('news').where({}).
-        orderBy('publishTime', 'desc').
-    limit(7).get();
+  let news = await db.collection('news').where({}).orderBy('publishTime', 'desc').limit(7).get();
 
-    return {
-        news
-    }
+  return {
+    news,
+  };
 };
