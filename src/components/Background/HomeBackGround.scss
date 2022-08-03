@@ -1,0 +1,13 @@
+.background {
+  height: 100%;
+  width: 100%;
+  background-color: #f6f6f6;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    rgba(118, 184, 147, 0.74) 0%,
+    rgba(116, 188, 187, 0.58) 34%,
+    #f6f6f6 83%
+  );
+  background-size: 100% 580px;
+  background-repeat: no-repeat;
+}

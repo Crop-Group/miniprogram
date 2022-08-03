@@ -1,9 +1,9 @@
 import 'windi.css';
 import Taro from '@tarojs/taro';
-import { Component } from 'react';
+import { Component, PropsWithChildren } from 'react';
 import './app.scss';
 
-class App extends Component {
+class App extends Component<PropsWithChildren> {
   componentDidMount() {
     // if (process.env.TARO_ENV === 'weapp') {
     Taro.cloud.init(); // 暂时考虑只适配微信小程序
