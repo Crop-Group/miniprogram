@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  pages: ['pages/index/index', 'pages/crop/index', 'pages/user/index'],
+  pages: ['pages/home/index', 'pages/crop/index', 'pages/user/index'],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
@@ -13,7 +13,7 @@ export default defineAppConfig({
     list: [
       {
         text: '发现',
-        pagePath: 'pages/index/index',
+        pagePath: 'pages/home/index',
         iconPath: 'images/tabBar/product-before.png',
         selectedIconPath: 'images/tabBar/product-after.png',
       },
