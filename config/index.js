@@ -14,6 +14,7 @@ const config = {
       '@dcasia/mini-program-tailwind-webpack-plugin/dist/taro',
       {
         // ...options
+        enableRpx: true,
       },
     ],
   ],
