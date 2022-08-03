@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { View, Text } from '@tarojs/components';
 import './index.scss';
+import { Layout } from '../../components/Layout';
+import { HomeBackGround } from '../../components/Background';
 
 export default class Index extends Component {
   componentWillMount() {}
@@ -15,12 +17,13 @@ export default class Index extends Component {
 
   render() {
     return (
-      <>
-        <View className='background-img' />
-        <View className='h-screen flex items-center justify-center'>
-          <Text>Hello world!</Text>
-        </View>
-      </>
+      <Layout
+        itemsCenter
+        menuBarElement={<View className='flex justify-center items-center h-full'>主页</View>}
+        background={<HomeBackGround />}
+      >
+        <Text>Hello world!</Text>
+      </Layout>
     );
   }
 }
