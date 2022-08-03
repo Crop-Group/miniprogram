@@ -28,13 +28,16 @@
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "lint": "eslint --fix --ext .js,.ts,.jsx,.tsx ./src",
-    "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx}\"",
+    "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx}\" \"cloud/**/*.{js,ts,jsx,tsx}\"",
     "precommit": "lint-staged",
     "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/*.{js,ts,jsx,tsx}": [
       "eslint --fix",
+      "prettier --write"
+    ],
+    "cloud/**/*.{js,ts,jsx,tsx}": [
       "prettier --write"
     ]
   },
