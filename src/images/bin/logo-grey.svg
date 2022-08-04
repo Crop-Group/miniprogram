@@ -1,0 +1,25 @@
+
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-ouv6n59hay-1">
+            <stop stop-color="#E3ECE2" stop-opacity="0.39" offset="0%"></stop>
+            <stop stop-color="#43D253" stop-opacity="0.760981206" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-ouv6n59hay-2">
+            <stop stop-color="#D8D8D8" stop-opacity="0.39" offset="0%"></stop>
+            <stop stop-color="#D8D8D8" stop-opacity="0.760981206" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="HOME" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Page" transform="translate(-2122.000000, -939.000000)" fill="url(#linearGradient-ouv6n59hay-2)" stroke="#D8D8D8" stroke-width="2.75490923">
+            <g id="封面故事页" transform="translate(1815.000000, 17.000000)">
+                <g id="底部logo" transform="translate(296.546296, 916.000000)">
+                    <g id="Group-2" transform="translate(12.453704, 8.240741)">
+                        <path d="M0,0 C4.48777692,1.96537282 6.73166539,4.99206343 6.73166539,9.08007183 C6.73166539,13.1680802 7.04498946,15.3605254 7.67163761,15.6574074" id="Path-2"></path>
+                        <path d="M12.1061402,0 C16.5939171,1.96537282 18.8378056,4.99206343 18.8378056,9.08007183 C18.8378056,13.1680802 19.1511296,15.3605254 19.7777778,15.6574074" id="Path-2" transform="translate(15.941959, 7.828704) scale(-1, 1) translate(-15.941959, -7.828704) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

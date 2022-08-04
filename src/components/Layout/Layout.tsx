@@ -2,10 +2,12 @@ import { View } from '@tarojs/components';
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import cls from 'classnames';
 import Taro from '@tarojs/taro';
+import { Footer } from '../Footer';
 
 interface LayoutProps {
   menuBarElement?: React.ReactNode;
   background?: React.ReactNode;
+  footer?: React.ReactNode;
   itemsCenter?: boolean;
   justifyCenter?: boolean;
 }
@@ -64,6 +66,7 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
           </View>
         )}
         <View className={viewClass}>{children}</View>
+        <Footer />
       </View>
     </React.Fragment>
   );
