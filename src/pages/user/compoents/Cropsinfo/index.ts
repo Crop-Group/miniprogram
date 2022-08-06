@@ -1,3 +1,3 @@
-import Cropsinfo from './CropsInfo';
+import CropsInfo from './CropsInfo';
 
-export { Cropsinfo };
+export { CropsInfo };
