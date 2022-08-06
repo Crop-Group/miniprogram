@@ -7,7 +7,7 @@ import { Footer } from '../Footer';
 interface LayoutProps {
   menuBarElement?: React.ReactNode;
   background?: React.ReactNode;
-  footer?: boolean;
+  showFooter?: boolean;
   itemsCenter?: boolean;
   justifyCenter?: boolean;
 }
@@ -21,7 +21,7 @@ interface LayoutProps {
  *
  * itemsCenter justifyCenter 对应flex的rules
  *
- * footer 对应是否显示footer底部栏
+ * showFooter 对应是否显示footer底部栏
  *
  * menuBarElement 是菜单栏的React元素
  *
@@ -29,7 +29,7 @@ interface LayoutProps {
  */
 export default function Layout(props: LayoutProps & PropsWithChildren) {
   // TODO 页脚Footer是否也集成进来，留一个开关供显式或隐藏
-  const { children, itemsCenter, justifyCenter, menuBarElement, background, footer } = props;
+  const { children, itemsCenter, justifyCenter, menuBarElement, background, showFooter } = props;
 
   const statusbarHeight = useMemo(() => {
     const info = Taro.getSystemInfoSync();
@@ -68,7 +68,7 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
           </View>
         )}
         <View className={viewClass}>{children}</View>
-        {footer && <Footer />}
+        {showFooter && <Footer />}
       </View>
     </React.Fragment>
   );

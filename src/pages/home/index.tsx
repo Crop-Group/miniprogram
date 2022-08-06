@@ -21,7 +21,7 @@ export default class Index extends Component {
         itemsCenter
         menuBarElement={<View className='flex justify-center items-center h-full'>发现</View>}
         background={<HomeBackGround />}
-        footer
+        showFooter
       >
         <Text>Hello world!</Text>
       </Layout>
