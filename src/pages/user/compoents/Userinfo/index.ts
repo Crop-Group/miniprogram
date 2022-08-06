@@ -1,3 +1,3 @@
-import Userinfo from './Userinfo';
+import UserInfo from './UserInfo';
 
-export { Userinfo };
+export { UserInfo };
