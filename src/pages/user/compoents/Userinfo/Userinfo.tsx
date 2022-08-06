@@ -1,5 +1,5 @@
 import { View, Image, Text } from '@tarojs/components';
-import './Userinfo.scss';
+import './UserInfo.scss';
 
 interface UserProps {
   avatarUrl: string;
@@ -11,7 +11,7 @@ interface UserProps {
  * 用户信息
  * 包含(用户头像、昵称、欢迎词)
  */
-export default function Userinfo(props: UserProps) {
+export default function UserInfo(props: UserProps) {
   const { avatarUrl, nickName, welcomeInfo } = props;
 
   return (

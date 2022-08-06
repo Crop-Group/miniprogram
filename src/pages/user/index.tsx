@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import './index.scss';
 import { Layout } from '../../components/Layout';
 import { HomeBackGround } from '../../components/Background';
-import { Userinfo } from './compoents/Userinfo';
+import { UserInfo } from './compoents/UserInfo';
 
 export default function User() {
   const [userInfo, setUserinfo] = useState({
@@ -20,7 +20,7 @@ export default function User() {
       background={<HomeBackGround />}
       showFooter
     >
-      <Userinfo nickName={userInfo.nickName} avatarUrl={userInfo.avatarUrl} welcomeInfo={userInfo.welcomeInfo} />
+      <UserInfo nickName={userInfo.nickName} avatarUrl={userInfo.avatarUrl} welcomeInfo={userInfo.welcomeInfo} />
     </Layout>
   );
 }
