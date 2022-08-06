@@ -27,6 +27,7 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
+    "dev": " NODE_ENV=production npx taro build --type weapp --watch",
     "lint": "eslint --fix --ext .js,.ts,.jsx,.tsx ./src",
     "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx}\" \"cloud/**/*.{js,ts,jsx,tsx}\"",
     "precommit": "lint-staged",
