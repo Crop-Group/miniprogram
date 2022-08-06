@@ -1,0 +1,30 @@
+.logo-menu
+{
+    height: 40px;
+    width: 40px;
+}
+.menu-item
+{
+    height: 120rpx;
+}
+.hr
+{
+    opacity: 0.1;
+    background-color: #979797;
+}
+.next
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18pt;
+    opacity: 0.2;
+    transform: scaleX(0.5);
+}
+
+.menu-description
+{
+    color: #13227A;
+    margin-top: 10rpx;
+    font-size: 11pt;
+}

@@ -5,6 +5,7 @@ import { Layout } from '../../components/Layout';
 import { HomeBackGround } from '../../components/Background';
 import { UserInfo } from './compoents/UserInfo';
 import { CropsInfo } from './compoents/CropsInfo';
+import { Menu } from './compoents/Menu';
 
 export default function User() {
   const [userInfo, setUserinfo] = useState({
@@ -27,6 +28,7 @@ export default function User() {
     >
       <UserInfo nickName={userInfo.nickName} avatarUrl={userInfo.avatarUrl} welcomeInfo={userInfo.welcomeInfo} />
       <CropsInfo collectionNum={cropsInfo.collectionNum} cropsNum={cropsInfo.cropsNum}></CropsInfo>
+      <Menu />
     </Layout>
   );
 }
