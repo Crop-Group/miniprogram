@@ -15,7 +15,7 @@ export default function CropsInfo(props: cropsProps) {
   const { collectionNum, cropsNum } = props;
 
   return (
-    <View className='w-full flex flex-col justify-center items-center py-4'>
+    <View className='w-full flex flex-col justify-center items-center my-4'>
       <View className='flex flex-row items-center bg-white container justify-center' style='width: 90%'>
         <View className='crops-container flex flex-col'>
           <Text className='num flex flex-row items-center justify-center'> {collectionNum} </Text>
