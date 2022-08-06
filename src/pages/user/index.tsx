@@ -18,7 +18,7 @@ export default function User() {
       itemsCenter
       menuBarElement={<View className='flex justify-center items-center h-full'></View>}
       background={<HomeBackGround />}
-      footer
+      showFooter
     >
       <Userinfo nickName={userInfo.nickName} avatarUrl={userInfo.avatarUrl} welcomeInfo={userInfo.welcomeInfo} />
     </Layout>
