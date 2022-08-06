@@ -15,7 +15,7 @@ export default function UserInfo(props: UserProps) {
   const { avatarUrl, nickName, welcomeInfo } = props;
 
   return (
-    <View className='flex flex-row items-start w-full' style='padding-left: 25px;'>
+    <View className='flex flex-row items-start w-full p-4' style='padding-left: 25px;'>
       <Image className='rounded-full border-2 border-white' style='width: 56px;height: 56px;' src={avatarUrl} />
       <View className='flex flex-col justify-center' style='height: 56px; margin-left: 5px'>
         <Text className='nick-name'> {nickName} </Text>
