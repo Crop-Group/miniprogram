@@ -4,6 +4,7 @@ import './index.scss';
 import { Layout } from '../../components/Layout';
 import { HomeBackGround } from '../../components/Background';
 import { UserInfo } from './compoents/UserInfo';
+import { CropsInfo } from './compoents/CropsInfo';
 
 export default function User() {
   const [userInfo, setUserinfo] = useState({
@@ -11,6 +12,10 @@ export default function User() {
       'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
     nickName: '用户未登录',
     welcomeInfo: '点击登录畅享羊谷之旅',
+  });
+  const [cropsInfo, setCropsinfo] = useState({
+    collectionNum: 0,
+    cropsNum: 0,
   });
 
   return (
@@ -21,6 +26,7 @@ export default function User() {
       showFooter
     >
       <UserInfo nickName={userInfo.nickName} avatarUrl={userInfo.avatarUrl} welcomeInfo={userInfo.welcomeInfo} />
+      <CropsInfo collectionNum={cropsInfo.collectionNum} cropsNum={cropsInfo.cropsNum}></CropsInfo>
     </Layout>
   );
 }
