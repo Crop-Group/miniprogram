@@ -1,5 +1,5 @@
 import { View, Image, Text } from '@tarojs/components';
-import './Userinfo.scss';
+import './CropsInfo.scss';
 
 interface cropsProps {
   collectionNum: number;
