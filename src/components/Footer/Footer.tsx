@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <View className='flex flex-col items-center justify-center mt-4 mb-4'>
       <View className='flex flex-row justify-center items-center'>
-        <Image style='width: 24px;height: 24px;' src={GreyLogo} />
+        <Image className='logo-grey' src={GreyLogo} />
         <Text className='logo-text'>羊谷</Text>
       </View>
       <Text className='footer-text'>数字化生产溯源工具</Text>
