@@ -3,9 +3,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import './index.scss';
 import { Layout } from '../../components/Layout';
 import { HomeBackGround } from '../../components/Background';
-import { UserInfo } from './compoents/UserInfo';
-import { CropsInfo } from './compoents/CropsInfo';
-import { Menu } from './compoents/Menu';
+import { UserInfo } from './components/UserInfo';
+import { CropsInfo } from './components/CropsInfo';
+import { Menu } from './components/Menu';
 
 export default function User() {
   const [userInfo, setUserinfo] = useState({

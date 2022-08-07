@@ -5,7 +5,6 @@ import CollectionLogo from '../../../../images/res/user/menu/collection.svg';
 import CropLogo from '../../../../images/res/user/menu/crop.svg';
 import GuideLogo from '../../../../images/res/user/menu/guide.svg';
 import ScanLogo from '../../../../images/res/user/menu/scan.svg';
-import { Menu } from '.';
 
 interface ItemConfig {
   logo: string;
