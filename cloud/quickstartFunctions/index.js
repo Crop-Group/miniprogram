@@ -4,6 +4,9 @@ const cropsManager = require('./cropsManager/index');
 const getRichTextNews = require('./getNews/rich-text-news');
 const initUser = require('./initUser/index');
 
+const news = require('./news/index');
+const users = require('./users/index');
+
 // 云函数入口函数
 exports.main = async (event, context) => {
   switch (event.type) {
@@ -21,5 +24,11 @@ exports.main = async (event, context) => {
       }
     case 'initUser':
       return await initUser.main(event, context);
+
+    case 'news':
+      return await news.main(event, context);
+
+    case 'users':
+      return await users.main(event, context);
   }
 };
