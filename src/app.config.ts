@@ -3,6 +3,7 @@ export default defineAppConfig({
     'pages/home/index',
     'pages/crop/index',
     'pages/user/index',
+    'pages/guide/index',
     'pages/user/about/index',
     'pages/user/about/contract/index',
   ],

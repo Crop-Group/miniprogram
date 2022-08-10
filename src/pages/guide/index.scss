@@ -1,0 +1,195 @@
+page
+{
+    height: 100%;
+}
+.guide
+{
+    height: 100%;
+    display: flex;
+}
+.guide .left-box
+{
+    height: 100%;
+    width: 75%;
+    background: white;
+}
+.guide .left-box .logo-box
+{
+    padding-top: 400px;
+    display: flex;
+    padding-left: 36px;
+}
+.guide .logo-box .logo
+{
+    height: 86px;
+    width: 86px;
+}
+
+#container-logo-title
+{
+    margin-top: 15px;
+}
+
+#container-logo-title text
+{
+    color: #34A853;
+    font-size: 20pt;
+    font-weight: 900;
+}
+
+.guide .intro
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 45px;
+}
+.guide .right-box
+{
+    background: #33A852;
+    width: 25%;
+}
+.guide-after .tapButton
+{
+    background: #33A852;
+    border-radius: 18.73px;
+    font-family: 'PingFangSC-Semibold';
+    color: #FFFFFF;
+    margin-left: 35px;
+    font-size: 12pt;
+    width: 243px;
+    height: 75rpx;
+    width: 276rpx;
+}
+.startButton
+{
+    margin-left: 40px;
+    width: 240px;
+    font-size: 12pt;
+    background-color: #34A853;
+    color: white;
+    margin-top: 20px;
+    height: 70px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.green-box
+{
+    height: 1680px;
+    background: #33A852;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-container
+{
+    width: 80%;
+    margin-top: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-container .logo-circle
+{
+    /* 实现水平居中 */
+    width: 400px;
+    height: 400px;
+    background: #64B57A;
+    border-radius: 18px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.main-container .guide-content
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 80px;
+}
+.main-container .guide-content .guide-title
+{
+    opacity: 0.95;
+    font-size: 14pt;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+}
+.main-container .guide-text
+{
+    margin-top: 46px;
+    opacity: 0.9;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 12pt;
+    line-height: 50px;
+}
+.next-container
+{
+    height: 100px;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.next-background
+{
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24pt;
+    box-shadow: 0 0 21px -7px rgba(0,0,0,0.50);
+}
+
+/* 尾部盒子 */
+.guide-after
+{
+    height: 100%;
+    display: flex;
+}
+.guide-after .left-box
+{
+    height: 100%;
+    width: 25%;
+    background: #34A853;
+}
+.guide-after .right-box
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 75%;
+}
+.guide-after .intro
+{
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 45px;
+    align-items: flex-end;
+    justify-content: center;
+}
+.button-container
+{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-self: flex-end;
+    margin-right: 40px;
+}
+.skip-container
+{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
