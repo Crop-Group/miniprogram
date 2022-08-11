@@ -1,5 +1,6 @@
 import { View, Text } from '@tarojs/components';
 import React, { useEffect, useMemo, useState } from 'react';
+import { useDidShow } from '@tarojs/taro';
 import './index.scss';
 import { Layout } from '../../components/Layout';
 import { HomeBackGround } from '../../components/Background';
@@ -18,6 +19,15 @@ export default function User() {
     collectionNum: 0,
     cropsNum: 0,
   });
+  const [test, setTest] = useState(1);
+  //TODO: 发起查询作物请求
+  useDidShow(() => {
+    setTest(test + 1);
+  });
+
+  useEffect(() => {
+    console.log(test);
+  }, [test]);
 
   return (
     <Layout
@@ -25,6 +35,7 @@ export default function User() {
       menuBarElement={<View className='flex justify-center items-center h-full'></View>}
       background={<HomeBackGround />}
       showFooter
+      showFooterBottom
     >
       <UserInfo nickName={userInfo.nickName} avatarUrl={userInfo.avatarUrl} welcomeInfo={userInfo.welcomeInfo} />
       <CropsInfo collectionNum={cropsInfo.collectionNum} cropsNum={cropsInfo.cropsNum}></CropsInfo>
