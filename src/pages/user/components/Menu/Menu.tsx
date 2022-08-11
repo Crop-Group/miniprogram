@@ -86,8 +86,8 @@ export default function UserInfo() {
             >
               {/* 左盒子 */}
               <View className='flex justify-center ml-10'>
-                <Image className='logo-menu mr-6' src={x.logo}></Image>
-                {x.title}
+                <Image className='h-10 w-10 mr-6' src={x.logo}></Image>
+                <Text className='leading-10 align-middle'>{x.title}</Text>
               </View>
               {/* 右盒子 */}
               <View className='flex flex-row justify-center mr-4'>
