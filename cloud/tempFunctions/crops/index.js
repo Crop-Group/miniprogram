@@ -100,7 +100,7 @@ exports.main = async (event, context) => {
 
     case 'getSingleCrops':
       //获取对应ID作物信息
-      let single_crop = await db
+      let singleCrop = await db
         .collection('temp_crops')
         .where({
           ownerId: openid,
@@ -116,7 +116,7 @@ exports.main = async (event, context) => {
           openid: cropsInfo.data[0].ownerId,
         })
         .get();
-      return { single_crop, ownerNickName };
+      return { singleCrop, ownerNickName };
 
     case 'findNearCrops':
       // 聚合查询地理位置，从近到远，单位：米
