@@ -3,7 +3,7 @@ import {
   CollectionPromise,
   SingleCollectionPromise,
   DeleteCollectionPromise,
-  addCollectionPromise,
+  AddCollectionPromise,
 } from '../../../types/functions';
 
 /**
@@ -114,7 +114,7 @@ const removeSingleCollection = async (id: string): DeleteCollectionPromise => {
  * @returns status: number, result: string,errMsg: string
  */
 
-const addSingleCollection = async (id: string): addCollectionPromise => {
+const addSingleCollection = async (id: string): AddCollectionPromise => {
   try {
     const _ = await Taro.cloud.callFunction({
       name: 'tempFunctions',
