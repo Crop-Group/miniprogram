@@ -1,6 +1,6 @@
 import { View, Text, Label } from '@tarojs/components';
 
-export default function About() {
+export default function Contract() {
   return (
     <View className='flex flex-col items-center'>
       <Label className='text-4xl mt-10 mb-8 font-bold'>羊谷小程序隐私协议</Label>
