@@ -41,7 +41,8 @@ interface Crops{
       detail: string,
       imgUrl: string,
       time: Date,
-  }>
+  }>,
+  owner?: string
 }
 
 /**
@@ -86,7 +87,6 @@ interface SingleCollection {
     ifCollection: boolean
 }
 
-
 /**
  * 函数返回结果
  */
@@ -96,7 +96,12 @@ type ArticlePromise = Promise<CloudFunctionsResult<Articles>>
 type CollectionPromise = Promise<CloudFunctionsResult<Collections>>
 type SingleCollectionPromise = Promise<CloudFunctionsResult<SingleCollection>>
 type DeleteCollectionPromise = Promise<CloudFunctionsResult<string>>
-type addCollectionPromise = Promise<CloudFunctionsResult<string>>
+type AddCollectionPromise = Promise<CloudFunctionsResult<string>>
+type GetCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>
+type GetSingleCropsPromise = Promise<CloudFunctionsResult<Crops>>
+type AddCropsPromise = Promise<CloudFunctionsResult<string>>
+type DeleteCropsPromise = Promise<CloudFunctionsResult<string>>
+type AddCropsLogPromise = Promise<CloudFunctionsResult<string>>
 
 export 
 { LoginResultPromise,
@@ -105,5 +110,10 @@ export
     CollectionPromise,
     SingleCollectionPromise,
     DeleteCollectionPromise,
-    addCollectionPromise
+    AddCollectionPromise,
+    GetCropsPromise,
+    GetSingleCropsPromise,
+    AddCropsPromise,
+    DeleteCropsPromise,
+    AddCropsLogPromise
 };
