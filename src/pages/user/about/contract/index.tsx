@@ -1,5 +1,4 @@
 import { View, Text, Label } from '@tarojs/components';
-import './index.scss';
 
 export default function About() {
   return (
