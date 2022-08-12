@@ -14,7 +14,7 @@ exports.main = async (event, context) => {
   switch (event.action) {
     case 'get':
       //获取全部收藏
-      let res_get = db
+      let res_get = await db
         .collection('temp_collections')
         .aggregate()
         .match({
