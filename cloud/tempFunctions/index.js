@@ -2,6 +2,7 @@ const news = require('./news/index');
 const users = require('./users/index');
 const crops = require('./crops/index');
 const initUser = require('./initUser/index');
+const collections = require('./collections/index');
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -14,5 +15,7 @@ exports.main = async (event, context) => {
       return await crops.main(event, context);
     case 'initUser':
       return await initUser.main(event, context);
+    case 'collections':
+      return await collections.main(event, context);
   }
 };
