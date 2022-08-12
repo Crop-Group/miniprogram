@@ -34,23 +34,23 @@ exports.main = async (event, context) => {
       //获取单个作物是否被收藏
 
       let res_get_single = await db
-        .collection('temp_crops')
+        .collection('temp_collections')
         .where({
           ownerId: openid,
           cropId: event.data.id,
         })
         .get();
 
-      if (res_get_single.length === 0) {
+      if (res_get_single.data.length === 0) {
         return { if_collection: false };
+      } else {
+        return { if_collection: true };
       }
-
-      return { if_collection: true };
 
     case 'deleteSingle':
       //删除收藏
       let res_delete = await db
-        .collection('temp_crops')
+        .collection('temp_collections')
         .where({
           ownerId: openid,
           cropId: event.data.id,
@@ -61,7 +61,7 @@ exports.main = async (event, context) => {
 
     case 'addSingle':
       //添加收藏
-      let res_add = await db.collection('temp_crops').add({
+      let res_add = await db.collection('temp_collections').add({
         ownerId: openid,
         cropId: event.data.id,
       });

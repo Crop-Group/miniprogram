@@ -12,13 +12,6 @@ interface CloudFunctionsResult<T> {
 }
 
 /**
- * 状态类参数
- */
-interface Status{
-  result: string;
-}
-
-/**
  * 用户类型
  */
 interface Users {
@@ -86,6 +79,12 @@ interface Collections {
     crops?: Array<Crops>
 }
 
+/**
+ * 查询单个收藏数据返回类型
+ */
+interface SingleCollection {
+    ifCollection: boolean
+}
 
 
 /**
@@ -95,5 +94,16 @@ type LoginResultPromise = Promise<CloudFunctionsResult<Users>>
 type InitUserPromise = Promise<CloudFunctionsResult<InitUsers>>
 type ArticlePromise = Promise<CloudFunctionsResult<Articles>>
 type CollectionPromise = Promise<CloudFunctionsResult<Collections>>
+type SingleCollectionPromise = Promise<CloudFunctionsResult<SingleCollection>>
+type DeleteCollectionPromise = Promise<CloudFunctionsResult<string>>
+type addCollectionPromise = Promise<CloudFunctionsResult<string>>
 
-export { LoginResultPromise, InitUserPromise, ArticlePromise, CollectionPromise };
+export 
+{ LoginResultPromise,
+    InitUserPromise,
+    ArticlePromise,
+    CollectionPromise,
+    SingleCollectionPromise,
+    DeleteCollectionPromise,
+    addCollectionPromise
+};
