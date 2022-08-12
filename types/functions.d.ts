@@ -98,11 +98,13 @@ type CollectionPromise = Promise<CloudFunctionsResult<Collections>>/*** 获取�
 type SingleCollectionPromise = Promise<CloudFunctionsResult<SingleCollection>>/*** 获取是否被收藏*/
 type DeleteCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 删除收藏*/
 type AddCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 增加收藏*/
-type GetCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>/*** 获取作全量*/
+type GetCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>/*** 获取作物全量*/
 type GetSingleCropsPromise = Promise<CloudFunctionsResult<Crops>>/*** 获取单个作物*/
 type AddCropsPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物*/
 type DeleteCropsPromise = Promise<CloudFunctionsResult<string>>/*** 删除作物*/
 type AddCropsLogPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物记录*/
+type FinishCropsPromise = Promise<CloudFunctionsResult<string>>/*** 标记完成作物*/
+type FindNearCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>/*** 查询附近作物*/
 
 export 
 { LoginResultPromise,
@@ -116,5 +118,7 @@ export
     GetSingleCropsPromise,
     AddCropsPromise,
     DeleteCropsPromise,
-    AddCropsLogPromise
+    AddCropsLogPromise,
+    FinishCropsPromise,
+    FindNearCropsPromise
 };
