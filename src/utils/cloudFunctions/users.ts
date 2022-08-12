@@ -68,7 +68,12 @@ const login = async (): LoginResultPromise => {
         //   result: {
         //     nickName: 'nickName',
         //     avatarUrl: 'avatarUrl',
-        //     userID: '*****'.
+        //     userID: '*****',
+        //     crops: Array<{
+        //          index: 0,
+        //          imgUrl: ''***
+        //      }
+        }>
         // }
         //}
     }
@@ -100,13 +105,14 @@ const initUser = async (): InitUserPromise => {
         },
       },
     });
-
+    __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
     ___.result = (typeof ___.result === 'string' ? {} : ___.result) ?? {};
 
     return {
       status: 1,
       result: {
         ...___.result,
+        userID: __.result.userID,
         nickName,
         avatarUrl,
       },
