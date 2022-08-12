@@ -8,7 +8,6 @@ interface LayoutProps {
   menuBarElement?: React.ReactNode;
   background?: React.ReactNode;
   showFooter?: boolean;
-  showFooterBottom?: boolean;
   itemsCenter?: boolean;
   justifyCenter?: boolean;
 }
@@ -24,15 +23,12 @@ interface LayoutProps {
  *
  * showFooter 对应是否显示footer底部栏
  *
- * showFooterBottom 对应是否将footer设置为底部显示
- *
  * menuBarElement 是菜单栏的React元素
  *
  * background 是全屏背景的React元素
  */
 export default function Layout(props: LayoutProps & PropsWithChildren) {
-  // TODO 页脚Footer是否也集成进来，留一个开关供显式或隐藏
-  const { children, itemsCenter, justifyCenter, menuBarElement, background, showFooter, showFooterBottom } = props;
+  const { children, itemsCenter, justifyCenter, menuBarElement, background, showFooter } = props;
 
   const statusbarHeight = useMemo(() => {
     const info = Taro.getSystemInfoSync();
@@ -48,7 +44,6 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
     },
     'flex',
     'flex-col',
-    'h-full',
     'box-border',
   );
 
@@ -61,17 +56,19 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
   return (
     <React.Fragment>
       {background && <View className='fixed -z-1 h-full w-full'>{background}</View>}
-      <View style={{ paddingTop: `${menuBarElement ? 0 : statusbarHeight}px` }}>
-        {menuBarElement && (
-          <View
-            className='sticky top-0'
-            style={{ height: `${pillHeight + statusbarHeight}px`, paddingTop: `${statusbarHeight}px`, width: '100%' }}
-          >
-            {menuBarElement}
-          </View>
-        )}
-        <View className={viewClass}>{children}</View>
-        {showFooter && <Footer showFooterBottom={showFooterBottom} />}
+      <View className='flex flex-col h-screen'>
+        <View style={{ paddingTop: `${menuBarElement ? 0 : statusbarHeight}px` }}>
+          {menuBarElement && (
+            <View
+              className='sticky top-0'
+              style={{ height: `${pillHeight + statusbarHeight}px`, paddingTop: `${statusbarHeight}px`, width: '100%' }}
+            >
+              {menuBarElement}
+            </View>
+          )}
+          <View className={viewClass}>{children}</View>
+        </View>
+        <View className='mt-auto'>{showFooter && <Footer />}</View>
       </View>
     </React.Fragment>
   );
