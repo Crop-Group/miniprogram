@@ -35,7 +35,6 @@ export default function User() {
       menuBarElement={<View className='flex justify-center items-center h-full'></View>}
       background={<HomeBackGround />}
       showFooter
-      showFooterBottom
     >
       <UserInfo nickName={userInfo.nickName} avatarUrl={userInfo.avatarUrl} welcomeInfo={userInfo.welcomeInfo} />
       <CropsInfo collectionNum={cropsInfo.collectionNum} cropsNum={cropsInfo.cropsNum}></CropsInfo>
