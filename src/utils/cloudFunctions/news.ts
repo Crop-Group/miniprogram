@@ -1,12 +1,15 @@
 import Taro from '@tarojs/taro';
-import { CloudFunctionsResult } from '../../../types/functions';
+import { ArticlePromise } from '../../../types/functions';
 
 /**
  * @description
  * 获取新闻列表
+ * @param 无请求参数
+ * @example
+ * const _ = await getNews()
  */
 
-const getNews = async (): Promise<CloudFunctionsResult> => {
+const getNews = async (): Promise<ArticlePromise> => {
   try {
     const _ = await Taro.cloud.callFunction({
       name: 'tempFunctions',
@@ -14,11 +17,11 @@ const getNews = async (): Promise<CloudFunctionsResult> => {
         type: 'news',
       },
     });
-    _.result = typeof _.result === 'string' ? {} : _.result;
+    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
     return {
       status: 1,
       result: {
-        ..._.result,
+        news: _.result.news.data,
       },
       errMsg: _.errMsg,
     };
