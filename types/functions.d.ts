@@ -90,18 +90,19 @@ interface SingleCollection {
 /**
  * 函数返回结果
  */
-type LoginResultPromise = Promise<CloudFunctionsResult<Users>>
-type InitUserPromise = Promise<CloudFunctionsResult<InitUsers>>
-type ArticlePromise = Promise<CloudFunctionsResult<Articles>>
-type CollectionPromise = Promise<CloudFunctionsResult<Collections>>
-type SingleCollectionPromise = Promise<CloudFunctionsResult<SingleCollection>>
-type DeleteCollectionPromise = Promise<CloudFunctionsResult<string>>
-type AddCollectionPromise = Promise<CloudFunctionsResult<string>>
-type GetCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>
-type GetSingleCropsPromise = Promise<CloudFunctionsResult<Crops>>
-type AddCropsPromise = Promise<CloudFunctionsResult<string>>
-type DeleteCropsPromise = Promise<CloudFunctionsResult<string>>
-type AddCropsLogPromise = Promise<CloudFunctionsResult<string>>
+
+type LoginResultPromise = Promise<CloudFunctionsResult<Users>> /*** 登录返回类型*/
+type InitUserPromise = Promise<CloudFunctionsResult<InitUsers>>/*** 初始化用户*/
+type ArticlePromise = Promise<CloudFunctionsResult<Articles>>/*** 获取新闻*/
+type CollectionPromise = Promise<CloudFunctionsResult<Collections>>/*** 获取全量收藏*/
+type SingleCollectionPromise = Promise<CloudFunctionsResult<SingleCollection>>/*** 获取是否被收藏*/
+type DeleteCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 删除收藏*/
+type AddCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 增加收藏*/
+type GetCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>/*** 获取作全量*/
+type GetSingleCropsPromise = Promise<CloudFunctionsResult<Crops>>/*** 获取单个作物*/
+type AddCropsPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物*/
+type DeleteCropsPromise = Promise<CloudFunctionsResult<string>>/*** 删除作物*/
+type AddCropsLogPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物记录*/
 
 export 
 { LoginResultPromise,
