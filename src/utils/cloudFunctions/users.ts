@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro';
-import { CloudFunctionsResult } from './.config';
+import { CloudFunctionsResult } from '../../../types/functions';
 
 /**
  * @description
