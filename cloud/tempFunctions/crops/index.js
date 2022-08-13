@@ -53,7 +53,7 @@ exports.main = async (event, context) => {
       let delete_collection_res = await db
         .collection('temp_collections')
         .where({
-          _id: event.data._id,
+          _id: event.data.id,
         })
         .remove();
 
@@ -61,7 +61,7 @@ exports.main = async (event, context) => {
         .collection('temp_crops')
         .where({
           ownerId: openid,
-          _id: event.data._id,
+          _id: event.data.id,
         })
         .remove();
       return { delete_crops_res, delete_collection_res };
@@ -71,7 +71,7 @@ exports.main = async (event, context) => {
         .collection('temp_crops')
         .where({
           ownerId: openid,
-          _id: event.data._id,
+          _id: event.data.id,
         })
         .update({
           data: {
@@ -85,7 +85,7 @@ exports.main = async (event, context) => {
         .collection('temp_crops')
         .where({
           ownerId: openid,
-          _id: event.data._id,
+          _id: event.data.id,
         })
         .update({
           data: {
