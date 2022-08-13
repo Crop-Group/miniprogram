@@ -14,6 +14,15 @@ export default defineAppConfig({
     navigationBarTextStyle: 'black',
     navigationStyle: 'custom',
   },
+  permission: {
+    'scope.userLocation': {
+      desc: '小程序需要获取你的实时位置',
+    },
+    'scope.userFuzzyLocation': {
+      desc: '小程序需要获取你的位置',
+    },
+  },
+  requiredPrivateInfos: ['chooseLocation', 'getFuzzyLocation'],
   tabBar: {
     selectedColor: '#34A853',
     borderStyle: 'white',
