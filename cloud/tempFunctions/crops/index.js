@@ -113,7 +113,7 @@ exports.main = async (event, context) => {
       let ownerNickName = await db
         .collection('temp_users')
         .where({
-          openid: cropsInfo.data[0].ownerId,
+          openid: singleCrop.data[0].ownerId,
         })
         .get();
       return { singleCrop, ownerNickName };

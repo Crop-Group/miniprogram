@@ -26,8 +26,8 @@ interface Users {
 interface Crops{
   name: string,
   category: string,
-  startTime: Date,
-  endTime: Date,
+  startTime: string,
+  endTime: string,
   ownerId: string,
   location: {
     geo: {
@@ -40,9 +40,9 @@ interface Crops{
   logs: Array<{
       detail: string,
       imgUrl: string,
-      time: Date,
+      time: string,
   }>,
-  owner?: string
+  ownerNickName?: string /**查询单一作物字段 */
 }
 
 /**
