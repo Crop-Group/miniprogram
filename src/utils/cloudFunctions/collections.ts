@@ -109,7 +109,7 @@ const removeSingleCollection = async (id: string): DeleteCollectionPromise => {
 
 /**
  * @description
- * 添加单个作物
+ * 添加单个作物收藏
  * @param id: string
  * @returns status: number, result: string,errMsg: string
  */
