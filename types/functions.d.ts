@@ -104,7 +104,7 @@ type AddCropsPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物*/
 type DeleteCropsPromise = Promise<CloudFunctionsResult<string>>/*** 删除作物*/
 type AddCropsLogPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物记录*/
 type FinishCropsPromise = Promise<CloudFunctionsResult<string>>/*** 标记完成作物*/
-type FindNearCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>/*** 查询附近作物*/
+type FindNearCropsCallBack = CloudFunctionsResult<Array<Crops>>/*** 查询附近作物*/
 
 export 
 { LoginResultPromise,
@@ -120,5 +120,5 @@ export
     DeleteCropsPromise,
     AddCropsLogPromise,
     FinishCropsPromise,
-    FindNearCropsPromise
+    FindNearCropsCallBack
 };

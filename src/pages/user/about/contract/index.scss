@@ -1,0 +1,44 @@
+.logo-box
+{
+    width: 150px;
+    height: 150px;
+}
+.title
+{
+    font-size: 18pt;
+    font-weight: bold;
+    margin-top: 40px;
+}
+.description
+{
+    margin-top: 22px;
+    width: 550px;
+    font-size: 12pt;
+    opacity: 0.4;
+}
+.logo-contact
+{
+    background: #7596C5;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 0px;
+    padding: 0px;
+}
+.logo-share
+{
+    background: #3BB06B;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 0px;
+    padding: 0px;
+}
