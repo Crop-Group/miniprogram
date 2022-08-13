@@ -2,7 +2,7 @@ import { View, Text, Swiper, SwiperItem, Label, Image } from '@tarojs/components
 import { useEffect, useState } from 'react';
 import Taro from '@tarojs/taro';
 import './index.scss';
-import { login } from '../../utils/index';
+import { findNearCrops } from '../../utils/index';
 
 interface IGuideList {
   index: number;
@@ -11,14 +11,14 @@ interface IGuideList {
   content: string;
 }
 export default function Guide() {
-  const handleLogin = async () => {
-    const _ = await login();
-    console.log(_);
-  };
   const [currentPage, setCurrentPage] = useState(0);
   const [nextLogoRight, setNextLogoRight] = useState(0);
   const [nextLogoTop, setNextLogoTop] = useState(0);
-
+  const handleLogin: () => void = async () => {
+    await findNearCrops((e) => {
+      console.log(e);
+    });
+  };
   const toNext: () => void = () => {
     const NextPlay = currentPage + 1 > 5 ? 5 : currentPage + 1;
     setCurrentPage(NextPlay);
