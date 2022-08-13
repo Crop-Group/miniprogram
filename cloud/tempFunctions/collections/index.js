@@ -62,8 +62,10 @@ exports.main = async (event, context) => {
     case 'addSingle':
       //添加收藏
       let res_add = await db.collection('temp_collections').add({
-        ownerId: openid,
-        cropId: event.data.id,
+        data: {
+          ownerId: openid,
+          cropId: event.data.id,
+        },
       });
       return { res_add };
   }
