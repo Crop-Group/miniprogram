@@ -139,7 +139,6 @@ const addSingleCrop = async (
  * 删除作物
  * @param id: string 作物id
  * @returns status: number, result: string,errMsg: string
- * @returns status: number, result: string,errMsg: string
  */
 
 const deleteSingleCrop = async (id: string): DeleteCropsPromise => {
