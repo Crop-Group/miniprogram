@@ -99,7 +99,7 @@ const addSingleCrop = async (
 ): AddCropsPromise => {
   try {
     const _ = await Taro.cloud.uploadFile({
-      cloudPath: `tmp/${wx.getStorageSync('userID')}-${new Date().getTime()}.png`,
+      cloudPath: `tmp/${userID}-${new Date().getTime()}.png`,
       filePath: imgUrl, // 文件路径
     });
 
@@ -174,12 +174,13 @@ const deleteSingleCrop = async (id: string): DeleteCropsPromise => {
  * @param id: string 作物id
  * @param imgUrl: string 本地图片路径
  * @param detail: string 记录详情
+ * @param userID: string 用户ID, 即16hex编码后的结果, 建议状态管理储存
  * @returns status: number, result: string,errMsg: string
  */
-const addSingleCropLog = async (id: string, imgUrl: string, detail: string): AddCropsLogPromise => {
+const addSingleCropLog = async (id: string, imgUrl: string, detail: string, userID: string): AddCropsLogPromise => {
   try {
     const _ = await Taro.cloud.uploadFile({
-      cloudPath: `tmp/${wx.getStorageSync('userID')}-${new Date().getTime()}.png`,
+      cloudPath: `tmp/${userID}-${new Date().getTime()}.png`,
       filePath: imgUrl, // 文件路径
     });
     const __ = await Taro.cloud.callFunction({
