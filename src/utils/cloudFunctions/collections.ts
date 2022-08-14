@@ -13,29 +13,21 @@ import {
  */
 
 const getCollections = async (): CollectionPromise => {
-  try {
-    const _ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
-      data: {
-        type: 'collections',
-        action: 'get',
-      },
-    });
-    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
-    console.log(_);
-    return {
-      status: 1,
-      result: {
-        crops: _.result.res_get.list,
-      },
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'collections',
+      action: 'get',
+    },
+  });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+  console.log(_);
+  return {
+    result: {
+      crops: _.result.res_get.list,
+    },
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -46,32 +38,24 @@ const getCollections = async (): CollectionPromise => {
  *
  */
 const judgeIfCollection = async (id: string): SingleCollectionPromise => {
-  try {
-    const _ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'collections',
+      action: 'getSingle',
       data: {
-        type: 'collections',
-        action: 'getSingle',
-        data: {
-          id: id,
-        },
+        id: id,
       },
-    });
-    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+    },
+  });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
 
-    return {
-      status: 1,
-      result: {
-        ifCollection: _.result.if_collection,
-      },
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  return {
+    result: {
+      ifCollection: _.result.if_collection,
+    },
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -82,29 +66,21 @@ const judgeIfCollection = async (id: string): SingleCollectionPromise => {
  */
 
 const removeSingleCollection = async (id: string): DeleteCollectionPromise => {
-  try {
-    const _ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'collections',
+      action: 'deleteSingle',
       data: {
-        type: 'collections',
-        action: 'deleteSingle',
-        data: {
-          id: id,
-        },
+        id: id,
       },
-    });
-    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
-    return {
-      status: 1,
-      result: _.result.res_delete.errMsg,
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+    },
+  });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+  return {
+    result: _.result.res_delete.errMsg,
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -115,29 +91,21 @@ const removeSingleCollection = async (id: string): DeleteCollectionPromise => {
  */
 
 const addSingleCollection = async (id: string): AddCollectionPromise => {
-  try {
-    const _ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'collections',
+      action: 'addSingle',
       data: {
-        type: 'collections',
-        action: 'addSingle',
-        data: {
-          id: id,
-        },
+        id: id,
       },
-    });
-    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+    },
+  });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
 
-    return {
-      status: 1,
-      result: _.result.res_add.errMsg,
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  return {
+    result: _.result.res_add.errMsg,
+    errMsg: _.errMsg,
+  };
 };
 export { getCollections, judgeIfCollection, removeSingleCollection, addSingleCollection };
