@@ -21,38 +21,30 @@ import { LoginResultPromise, InitUserPromise } from '../../../types/functions';
  */
 
 const login = async (): LoginResultPromise => {
-  try {
-    const _ = await Taro.getUserProfile({
-      desc: '获取用户头像、昵称，作物数据',
-    });
-    const nickName = _.userInfo['nickName'];
-    const avatarUrl = _.userInfo['avatarUrl'];
+  const _ = await Taro.getUserProfile({
+    desc: '获取用户头像、昵称，作物数据',
+  });
+  const nickName = _.userInfo['nickName'];
+  const avatarUrl = _.userInfo['avatarUrl'];
 
-    const __ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const __ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'users',
       data: {
-        type: 'users',
-        data: {
-          nickName: nickName,
-        },
+        nickName: nickName,
       },
-    });
-    __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
-    return {
-      status: 1,
-      result: {
-        userID: __.result.userID,
-        nickName,
-        avatarUrl,
-      },
-      errMsg: __.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+    },
+  });
+  __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
+  return {
+    result: {
+      userID: __.result.userID,
+      nickName,
+      avatarUrl,
+    },
+    errMsg: __.errMsg,
+  };
 };
 
 /**
@@ -80,50 +72,42 @@ const login = async (): LoginResultPromise => {
  */
 
 const initUser = async (): InitUserPromise => {
-  try {
-    const _ = await Taro.getUserProfile({
-      desc: '获取用户头像、昵称，作物数据',
-    });
-    const nickName = _.userInfo['nickName'];
-    const avatarUrl = _.userInfo['avatarUrl'];
+  const _ = await Taro.getUserProfile({
+    desc: '获取用户头像、昵称，作物数据',
+  });
+  const nickName = _.userInfo['nickName'];
+  const avatarUrl = _.userInfo['avatarUrl'];
 
-    const __ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const __ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'users',
       data: {
-        type: 'users',
-        data: {
-          nickName: nickName,
-        },
+        nickName: nickName,
       },
-    });
-    const ___ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+    },
+  });
+  const ___ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'initUser',
       data: {
-        type: 'initUser',
-        data: {
-          nickName: nickName,
-        },
+        nickName: nickName,
       },
-    });
-    __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
-    ___.result = (typeof ___.result === 'string' ? {} : ___.result) ?? {};
+    },
+  });
+  __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
+  ___.result = (typeof ___.result === 'string' ? {} : ___.result) ?? {};
 
-    return {
-      status: 1,
-      result: {
-        ...___.result,
-        userID: __.result.userID,
-        nickName,
-        avatarUrl,
-      },
-      errMsg: ___.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  return {
+    result: {
+      ...___.result,
+      userID: __.result.userID,
+      nickName,
+      avatarUrl,
+    },
+    errMsg: ___.errMsg,
+  };
 };
 
 export { login, initUser };

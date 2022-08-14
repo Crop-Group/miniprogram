@@ -15,26 +15,18 @@ import {
  * @param 无
  */
 const getCrops = async (): GetCropsPromise => {
-  try {
-    const _ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
-      data: {
-        type: 'crops',
-        action: 'get',
-      },
-    });
-    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
-    return {
-      status: 1,
-      result: _.result.crops,
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'crops',
+      action: 'get',
+    },
+  });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+  return {
+    result: _.result.crops,
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -45,33 +37,25 @@ const getCrops = async (): GetCropsPromise => {
  * @returns {..., result: { ...Crops, ownerNickName: '***'//种植者名称 } }
  */
 const getSingleCrop = async (id: string): GetSingleCropsPromise => {
-  try {
-    const _ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'crops',
+      action: 'getSingleCrops',
       data: {
-        type: 'crops',
-        action: 'getSingleCrops',
-        data: {
-          id: id,
-        },
+        id: id,
       },
-    });
-    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+    },
+  });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
 
-    return {
-      status: 1,
-      result: {
-        ..._.result.singleCrop.data[0],
-        ownerNickName: _.result.ownerNickName.data[0].nickName,
-      },
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  return {
+    result: {
+      ..._.result.singleCrop.data[0],
+      ownerNickName: _.result.ownerNickName.data[0].nickName,
+    },
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -97,41 +81,33 @@ const addSingleCrop = async (
   longitude: number,
   location: string,
 ): AddCropsPromise => {
-  try {
-    const _ = await Taro.cloud.uploadFile({
-      cloudPath: `tmp/${userID}-${new Date().getTime()}.png`,
-      filePath: imgUrl, // 文件路径
-    });
+  const _ = await Taro.cloud.uploadFile({
+    cloudPath: `tmp/${userID}-${new Date().getTime()}.png`,
+    filePath: imgUrl, // 文件路径
+  });
 
-    const __ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const __ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'crops',
+      action: 'add',
       data: {
-        type: 'crops',
-        action: 'add',
-        data: {
-          name: name,
-          imgUrl: _.fileID,
-          userID: userID,
-          startTime: startTime,
-          endTime: endTime,
-          latitude: latitude,
-          longitude: longitude,
-          location: location,
-        },
+        name: name,
+        imgUrl: _.fileID,
+        userID: userID,
+        startTime: startTime,
+        endTime: endTime,
+        latitude: latitude,
+        longitude: longitude,
+        location: location,
       },
-    });
-    __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
-    return {
-      status: 1,
-      result: __.result.res.errMsg,
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+    },
+  });
+  __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
+  return {
+    result: __.result.res.errMsg,
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -142,30 +118,22 @@ const addSingleCrop = async (
  */
 
 const deleteSingleCrop = async (id: string): DeleteCropsPromise => {
-  try {
-    const _ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'crops',
+      action: 'delete',
       data: {
-        type: 'crops',
-        action: 'delete',
-        data: {
-          id: id,
-        },
+        id: id,
       },
-    });
-    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+    },
+  });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
 
-    return {
-      status: 1,
-      result: _.result.delete_crops_res.errMsg,
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  return {
+    result: _.result.delete_crops_res.errMsg,
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -178,37 +146,29 @@ const deleteSingleCrop = async (id: string): DeleteCropsPromise => {
  * @returns status: number, result: string,errMsg: string
  */
 const addSingleCropLog = async (id: string, imgUrl: string, detail: string, userID: string): AddCropsLogPromise => {
-  try {
-    const _ = await Taro.cloud.uploadFile({
-      cloudPath: `tmp/${userID}-${new Date().getTime()}.png`,
-      filePath: imgUrl, // 文件路径
-    });
-    const __ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const _ = await Taro.cloud.uploadFile({
+    cloudPath: `tmp/${userID}-${new Date().getTime()}.png`,
+    filePath: imgUrl, // 文件路径
+  });
+  const __ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'crops',
+      action: 'addLogs',
       data: {
-        type: 'crops',
-        action: 'addLogs',
-        data: {
-          id: id,
-          imgUrl: _.fileID,
-          detail: detail,
-          time: new Date(),
-        },
+        id: id,
+        imgUrl: _.fileID,
+        detail: detail,
+        time: new Date(),
       },
-    });
-    __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
+    },
+  });
+  __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
 
-    return {
-      status: 1,
-      result: __.result.addLogs_res.errMsg,
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  return {
+    result: __.result.addLogs_res.errMsg,
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -218,30 +178,22 @@ const addSingleCropLog = async (id: string, imgUrl: string, detail: string, user
  * @returns status: number, result: string, errMsg: string
  */
 const finishSingleCrop = async (id: string): FinishCropsPromise => {
-  try {
-    const _ = await Taro.cloud.callFunction({
-      name: 'tempFunctions',
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'crops',
+      action: 'finish',
       data: {
-        type: 'crops',
-        action: 'finish',
-        data: {
-          id: id,
-        },
+        id: id,
       },
-    });
-    _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+    },
+  });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
 
-    return {
-      status: 1,
-      result: _.result.finish_res.errMsg,
-      errMsg: _.errMsg,
-    };
-  } catch (e) {
-    return {
-      status: 0,
-      errMsg: e,
-    };
-  }
+  return {
+    result: _.result.finish_res.errMsg,
+    errMsg: _.errMsg,
+  };
 };
 
 /**
@@ -260,38 +212,30 @@ const finishSingleCrop = async (id: string): FinishCropsPromise => {
  */
 
 const findNearCrops = (callback: { (res: FindNearCropsCallBack): void }) => {
-  try {
-    Taro.getFuzzyLocation({
-      type: 'wgs84',
-      success: async (_) => {
-        console.log('loca', _);
-        const __ = await Taro.cloud
-          .callFunction({
-            name: 'tempFunctions',
+  Taro.getFuzzyLocation({
+    type: 'wgs84',
+    success: async (_) => {
+      console.log('loca', _);
+      const __ = await Taro.cloud
+        .callFunction({
+          name: 'tempFunctions',
+          data: {
+            type: 'crops',
+            action: 'findNearCrops',
             data: {
-              type: 'crops',
-              action: 'findNearCrops',
-              data: {
-                longitude: _.longitude,
-                latitude: _.latitude,
-              },
+              longitude: _.longitude,
+              latitude: _.latitude,
             },
-          })
-          .then();
-        __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
-        callback({
-          status: 1,
-          result: __.result.res_find_near.list,
-          errMsg: __.errMsg,
-        });
-      },
-    });
-  } catch (e) {
-    callback({
-      status: 0,
-      errMsg: e,
-    });
-  }
+          },
+        })
+        .then();
+      __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
+      callback({
+        result: __.result.res_find_near.list,
+        errMsg: __.errMsg,
+      });
+    },
+  });
 };
 
 export { getCrops, getSingleCrop, addSingleCrop, addSingleCropLog, deleteSingleCrop, finishSingleCrop, findNearCrops };
