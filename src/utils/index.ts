@@ -2,7 +2,7 @@ import { login, initUser } from './cloudFunctions/users';
 import { getNews } from './cloudFunctions/news';
 import {
   getCollections,
-  getSingleCollection,
+  judgeIfCollection,
   addSingleCollection,
   removeSingleCollection,
 } from './cloudFunctions/collections';
@@ -25,7 +25,7 @@ export {
   getNews,
   initUser,
   getCollections,
-  getSingleCollection,
+  judgeIfCollection,
   addSingleCollection,
   removeSingleCollection,
   getCrops,

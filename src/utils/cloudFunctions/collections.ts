@@ -45,7 +45,7 @@ const getCollections = async (): CollectionPromise => {
  * @returns status: number, result: {ifCollection: boolen},errMsg: string
  *
  */
-const getSingleCollection = async (id: string): SingleCollectionPromise => {
+const judgeIfCollection = async (id: string): SingleCollectionPromise => {
   try {
     const _ = await Taro.cloud.callFunction({
       name: 'tempFunctions',
@@ -140,4 +140,4 @@ const addSingleCollection = async (id: string): AddCollectionPromise => {
     };
   }
 };
-export { getCollections, getSingleCollection, removeSingleCollection, addSingleCollection };
+export { getCollections, judgeIfCollection, removeSingleCollection, addSingleCollection };
