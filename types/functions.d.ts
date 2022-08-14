@@ -7,7 +7,7 @@
  */
 interface CloudFunctionsResult<T> {
   status: 0 | 1;
-  result?: T | string | undefined;
+  result: T | string | undefined;
   errMsg: string;
 }
 
