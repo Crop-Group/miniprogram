@@ -7,7 +7,10 @@ import {
   AddCropsLogPromise,
   FinishCropsPromise,
   FindNearCropsCallBack,
+  Crops,
+  CloudFunctionsResult,
 } from '../../../types/functions';
+import { getFuzzyLocation } from '../getFuzzyLoacation';
 
 /**
  * @description
@@ -200,7 +203,7 @@ const finishSingleCrop = async (id: string): FinishCropsPromise => {
  * @description
  * 查找周边作物
  * @param callback: (res: FindNearCropsCallBack) => {}
- * @example 
+ * @example
  * await findNearCrops((e)=>{
         console.log(e)
     });
@@ -211,31 +214,21 @@ const finishSingleCrop = async (id: string): FinishCropsPromise => {
     // }
  */
 
-const findNearCrops = (callback: { (res: FindNearCropsCallBack): void }) => {
-  Taro.getFuzzyLocation({
-    type: 'wgs84',
-    success: async (_) => {
-      console.log('loca', _);
-      const __ = await Taro.cloud
-        .callFunction({
-          name: 'tempFunctions',
-          data: {
-            type: 'crops',
-            action: 'findNearCrops',
-            data: {
-              longitude: _.longitude,
-              latitude: _.latitude,
-            },
-          },
-        })
-        .then();
-      __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
-      callback({
-        result: __.result.res_find_near.list,
-        errMsg: __.errMsg,
-      });
+const findNearCrops = async () => {
+  const location = await getFuzzyLocation({ type: 'wgs84' });
+  const _ = await Taro.cloud.callFunction({
+    name: 'tempFunctions',
+    data: {
+      type: 'crops',
+      action: 'findNearCrops',
+      data: {
+        longitude: location.longitude,
+        latitude: location.latitude,
+      },
     },
   });
+  _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
+  // TODO 返回结果，加上类型
 };
 
 export { getCrops, getSingleCrop, addSingleCrop, addSingleCropLog, deleteSingleCrop, finishSingleCrop, findNearCrops };
