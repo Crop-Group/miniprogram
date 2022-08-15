@@ -47,8 +47,8 @@ interface Crops{
 /**
  * 新闻返回参数
  */
-interface Articles {
-  news?: Array<{
+interface Article
+{
     category: string,
     content: string,
     description: string,
@@ -56,7 +56,6 @@ interface Articles {
     index: number,
     publishTime: Date,
     title: string
-  }>
 }
 
 /**
@@ -92,7 +91,7 @@ interface SingleCollection {
 
 type LoginResultPromise = Promise<CloudFunctionsResult<Users>> /*** 登录返回类型*/
 type InitUserPromise = Promise<CloudFunctionsResult<InitUsers>>/*** 初始化用户*/
-type ArticlePromise = Promise<CloudFunctionsResult<Articles>>/*** 获取新闻*/
+type ArticlePromise = Promise<CloudFunctionsResult<Array<Article>>>/*** 获取新闻*/
 type CollectionPromise = Promise<CloudFunctionsResult<Collections>>/*** 获取全量收藏*/
 type SingleCollectionPromise = Promise<CloudFunctionsResult<SingleCollection>>/*** 获取是否被收藏*/
 type DeleteCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 删除收藏*/

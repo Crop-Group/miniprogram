@@ -18,9 +18,7 @@ const getNews = async (): ArticlePromise => {
   });
   _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
   return {
-    result: {
-      news: _.result.news.data,
-    },
+    result: _.result.news.data,
     errMsg: _.errMsg,
   };
 };
