@@ -23,9 +23,7 @@ const getCollections = async (): CollectionPromise => {
   _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
   console.log(_);
   return {
-    result: {
-      crops: _.result.res_get.list,
-    },
+    result: _.result.res_get.list,
     errMsg: _.errMsg,
   };
 };
