@@ -72,13 +72,6 @@ interface InitUsers {
 }
 
 /**
- * 查询收藏全量数据返回类型
- */
-interface Collections {
-    crops?: Array<Crops>
-}
-
-/**
  * 查询单个收藏数据返回类型
  */
 interface SingleCollection {
@@ -92,7 +85,7 @@ interface SingleCollection {
 type LoginResultPromise = Promise<CloudFunctionsResult<Users>> /*** 登录返回类型*/
 type InitUserPromise = Promise<CloudFunctionsResult<InitUsers>>/*** 初始化用户*/
 type ArticlePromise = Promise<CloudFunctionsResult<Array<Article>>>/*** 获取新闻*/
-type CollectionPromise = Promise<CloudFunctionsResult<Collections>>/*** 获取全量收藏*/
+type CollectionPromise = Promise<CloudFunctionsResult<Array<Crops>>>/*** 获取全量收藏*/
 type SingleCollectionPromise = Promise<CloudFunctionsResult<SingleCollection>>/*** 获取是否被收藏*/
 type DeleteCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 删除收藏*/
 type AddCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 增加收藏*/
