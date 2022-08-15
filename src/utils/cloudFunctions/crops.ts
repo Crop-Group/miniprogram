@@ -111,7 +111,7 @@ const addSingleCrop = async (
 
 /**
  * @description
- * 删除作物
+ * 删除作物, 此接口的返回参没有意义, 但是可以确保所给对应ID从数据库中移除
  * @param id: string 作物id
  * @returns status: number, result: string,errMsg: string
  */
