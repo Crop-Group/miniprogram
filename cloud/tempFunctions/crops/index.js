@@ -103,7 +103,6 @@ exports.main = async (event, context) => {
       let singleCrop = await db
         .collection('temp_crops')
         .where({
-          ownerId: openid,
           _id: event.data.id,
         })
         .orderBy('startTime', 'desc')
