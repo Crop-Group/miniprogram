@@ -9,7 +9,7 @@ import { ArticlePromise } from '../../../types/functions';
  * const _ = await getNews()
  */
 
-const getNews = async (): Promise<ArticlePromise> => {
+const getNews = async (): ArticlePromise => {
   const _ = await Taro.cloud.callFunction({
     name: 'tempFunctions',
     data: {
