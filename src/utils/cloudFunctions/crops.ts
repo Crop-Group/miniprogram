@@ -61,11 +61,10 @@ const getSingleCrop = async (id: string): GetSingleCropsPromise => {
 
 /**
  * @description
- * 增添作物数据
+ * 增添作物数据, 无需传入开始种植时间
  * @param name: string 作物名称
  * @param userID: string 用户ID, 对应首页昵称第二行
  * @param imgUrl: string 本地图片路径
- * @param startTime: string yyyy-MM-dd-HH-mm-ss eg: 2022-08-13T08:12:20.697Z, 建议开始时间设置不可修改, 可以直接传入 new Date()
  * @param endTime: string yyyy-MM-dd eg: 2022-10-02, 注意开始时间需要早于结束时间
  * @param latitude: number 纬度
  * @param longitude: number 经度
@@ -76,7 +75,6 @@ const addSingleCrop = async (
   name: string,
   userID: string,
   imgUrl: string,
-  startTime: string,
   endTime: string,
   latitude: number,
   longitude: number,
@@ -96,7 +94,7 @@ const addSingleCrop = async (
         name: name,
         imgUrl: _.fileID,
         userID: userID,
-        startTime: startTime,
+        startTime: new Date(),
         endTime: endTime,
         latitude: latitude,
         longitude: longitude,
@@ -107,7 +105,7 @@ const addSingleCrop = async (
   __.result = (typeof __.result === 'string' ? {} : __.result) ?? {};
   return {
     result: __.result.res.errMsg,
-    errMsg: _.errMsg,
+    errMsg: __.errMsg,
   };
 };
 
