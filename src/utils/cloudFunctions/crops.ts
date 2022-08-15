@@ -25,7 +25,7 @@ const getCrops = async (): GetCropsPromise => {
   });
   _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
   return {
-    result: _.result.crops,
+    result: _.result.crops.data,
     errMsg: _.errMsg,
   };
 };
