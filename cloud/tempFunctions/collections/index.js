@@ -30,7 +30,7 @@ exports.main = async (event, context) => {
 
       return { res_get };
 
-    case 'getSingle':
+    case 'check':
       //获取单个作物是否被收藏
 
       let res_get_single = await db

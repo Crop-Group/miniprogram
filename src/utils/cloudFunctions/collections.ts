@@ -42,7 +42,7 @@ const checkIfInCollection = async (id: string): SingleCollectionPromise => {
     name: 'tempFunctions',
     data: {
       type: 'collections',
-      action: 'getSingle',
+      action: 'check',
       data: {
         id: id,
       },
