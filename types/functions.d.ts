@@ -6,7 +6,7 @@
  * @param status 0 表示失败 1 表示成功
  */
 interface CloudFunctionsResult<T> {
-  result: T | string | undefined;
+  result: T;
   errMsg: string;
 }
 
@@ -90,7 +90,7 @@ type SingleCollectionPromise = Promise<CloudFunctionsResult<SingleCollection>>/*
 type DeleteCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 删除收藏*/
 type AddCollectionPromise = Promise<CloudFunctionsResult<string>>/*** 增加收藏*/
 type GetCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>/*** 获取作物全量*/
-type GetSingleCropsPromise = Promise<CloudFunctionsResult<Crops>>/*** 获取单个作物*/
+type GetSingleCropsPromise = Promise<CloudFunctionsResult<Crops | undefined>>/*** 获取单个作物*/
 type AddCropsPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物*/
 type DeleteCropsPromise = Promise<CloudFunctionsResult<string>>/*** 删除作物*/
 type AddCropsLogPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物记录*/
