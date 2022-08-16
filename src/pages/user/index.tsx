@@ -1,5 +1,6 @@
-import { View, Text } from '@tarojs/components';
-import React, { useEffect, useMemo, useState } from 'react';
+import { View } from '@tarojs/components';
+import { useContext } from 'react';
+import { observer } from 'mobx-react-lite';
 import { useDidShow } from '@tarojs/taro';
 import './index.scss';
 import { Layout } from '../../components/Layout';
@@ -7,27 +8,17 @@ import { HomeBackGround } from '../../components/Background';
 import { UserInfo } from './components/UserInfo';
 import { CropsInfo } from './components/CropsInfo';
 import { Menu } from './components/Menu';
+import { CropsCollectionStoreContext, CropsStoreContext } from '../../store/providers';
 
-export default function User() {
-  const [userInfo, setUserinfo] = useState({
-    avatarUrl:
-      'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
-    nickName: '用户未登录',
-    welcomeInfo: '点击登录畅享羊谷之旅',
-  });
-  const [cropsInfo, setCropsinfo] = useState({
-    collectionNum: 0,
-    cropsNum: 0,
-  });
-  const [test, setTest] = useState(1);
-  //TODO: 发起查询作物请求
+function User() {
+  const cropsStore = useContext(CropsStoreContext);
+  const collectionStore = useContext(CropsCollectionStoreContext);
+
+  // 发起查询收藏作物请求
   useDidShow(() => {
-    setTest(test + 1);
+    cropsStore.fetch();
+    collectionStore.fetch();
   });
-
-  useEffect(() => {
-    console.log(test);
-  }, [test]);
 
   return (
     <Layout
@@ -36,9 +27,11 @@ export default function User() {
       background={<HomeBackGround />}
       showFooter
     >
-      <UserInfo nickName={userInfo.nickName} avatarUrl={userInfo.avatarUrl} welcomeInfo={userInfo.welcomeInfo} />
-      <CropsInfo collectionNum={cropsInfo.collectionNum} cropsNum={cropsInfo.cropsNum}></CropsInfo>
+      <UserInfo />
+      <CropsInfo collectionNum={collectionStore.length} cropsNum={cropsStore.length}></CropsInfo>
       <Menu />
     </Layout>
   );
 }
+
+export default observer(User);
