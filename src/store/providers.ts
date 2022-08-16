@@ -3,14 +3,16 @@ import { CropsStore } from './crops';
 import { CropsCollectionStore } from './crops-collection';
 import { UserStore } from './user';
 
-export const userStore = new UserStore();
+import { rootStore } from './root';
+
+export const userStore = rootStore.userStore;
 
 export const UserStoreContext = createContext<UserStore>(userStore);
 
-export const cropsCollectionStore = new CropsCollectionStore();
+export const cropsCollectionStore = rootStore.cropsCollectionStore;
 
 export const CropsCollectionStoreContext = createContext<CropsCollectionStore>(cropsCollectionStore);
 
-export const cropsStore = new CropsStore();
+export const cropsStore = rootStore.cropsStore;
 
 export const CropsStoreContext = createContext<CropsStore>(cropsStore);
