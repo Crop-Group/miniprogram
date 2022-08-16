@@ -23,6 +23,7 @@ export interface Users {
  * 谷物类型
  */
 export interface Crops{
+  _id: string,
   name: string,
   category: string,
   startTime: string,
