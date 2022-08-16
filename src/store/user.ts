@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { makePersistable, startPersisting } from 'mobx-persist-store';
 import { initUser, login } from '../utils';
 import { storageController } from './storage-controller';
@@ -38,9 +38,11 @@ export class UserStore {
     const { result } = await login();
     if (result !== undefined) {
       const { userID, avatarUrl, nickName } = result;
-      this.avatarUrl = avatarUrl;
-      this.userID = userID;
-      this.nickName = nickName;
+      runInAction(() => {
+        this.avatarUrl = avatarUrl;
+        this.userID = userID;
+        this.nickName = nickName;
+      });
     }
   }
 
@@ -48,9 +50,11 @@ export class UserStore {
     const { result } = await initUser();
     if (result !== undefined) {
       const { userID, avatarUrl, nickName } = result;
-      this.avatarUrl = avatarUrl;
-      this.userID = userID;
-      this.nickName = nickName;
+      runInAction(() => {
+        this.avatarUrl = avatarUrl;
+        this.userID = userID;
+        this.nickName = nickName;
+      });
     }
   }
 }

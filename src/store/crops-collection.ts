@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { Crops } from 'types/functions';
 import { addSingleCollection, checkIfInCollection, getCollections, removeSingleCollection } from '../utils';
 
@@ -14,7 +14,9 @@ export class CropsCollectionStore {
   async fetch() {
     const { result } = await getCollections();
     if (result !== undefined) {
-      this.crops = result;
+      runInAction(() => {
+        this.crops = result;
+      });
     }
   }
 

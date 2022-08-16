@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { Crops as CropsType } from 'types/functions';
 import { addSingleCrop, addSingleCropLog, deleteSingleCrop, finishSingleCrop, getCrops, getSingleCrop } from '../utils';
 
@@ -14,7 +14,9 @@ export class Crop {
   private async fetch() {
     const { result } = await getSingleCrop(this.details._id);
     if (result) {
-      this.details = result;
+      runInAction(() => {
+        this.details = result;
+      });
     }
   }
 
@@ -29,7 +31,9 @@ export class Crop {
     const { result } = await finishSingleCrop(id);
     if (result) {
       // simply change status
-      this.details.status = '已完成';
+      runInAction(() => {
+        this.details.status = '已完成';
+      });
       await this.fetch();
     }
   }
@@ -45,8 +49,10 @@ export class CropsStore {
   async fetch() {
     const { result } = await getCrops();
     if (result !== undefined) {
-      this.crops = [];
-      result.forEach((res) => this.crops.push(new Crop(res)));
+      runInAction(() => {
+        this.crops = [];
+        result.forEach((res) => this.crops.push(new Crop(res)));
+      });
     }
   }
 
