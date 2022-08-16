@@ -23,6 +23,7 @@ interface Users {
  * 谷物类型
  */
 interface Crops{
+  _id: string,
   name: string,
   category: string,
   startTime: string,
