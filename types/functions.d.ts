@@ -6,7 +6,7 @@
  * @param status 0 表示失败 1 表示成功
  */
 interface CloudFunctionsResult<T> {
-  result: T | string | undefined;
+  result: T;
   errMsg: string;
 }
 
