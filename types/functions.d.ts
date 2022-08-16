@@ -34,7 +34,7 @@ export interface Crops{
     },
     detail: string,
   },
-  status: '种植中',
+  status: '种植中' | '已完成',
   display: false,
   logs: Array<{
       detail: string,
