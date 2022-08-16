@@ -108,6 +108,11 @@ exports.main = async (event, context) => {
         .orderBy('startTime', 'desc')
         .get();
 
+      if (singleCrop.data.length === 0) {
+        return {
+          singleCrop,
+        };
+      }
       //获取对应生产者昵称
       let ownerNickName = await db
         .collection('temp_users')

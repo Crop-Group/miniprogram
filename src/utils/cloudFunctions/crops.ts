@@ -49,7 +49,13 @@ const getSingleCrop = async (id: string): GetSingleCropsPromise => {
     },
   });
   _.result = (typeof _.result === 'string' ? {} : _.result) ?? {};
-
+  /**查询不到作物返回 */
+  if (_.result.singleCrop.data.length === 0) {
+    return {
+      result: undefined,
+      errMsg: _.errMsg,
+    };
+  }
   return {
     result: {
       ..._.result.singleCrop.data[0],
