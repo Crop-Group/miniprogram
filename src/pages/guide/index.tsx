@@ -1,8 +1,10 @@
 import { View, Text, Swiper, SwiperItem, Label, Image } from '@tarojs/components';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { observer } from 'mobx-react-lite';
 import Taro from '@tarojs/taro';
 import './index.scss';
 import { findNearCrops } from '../../utils/index';
+import { UserStoreContext } from '../../store/providers';
 
 interface IGuideList {
   index: number;
@@ -10,15 +12,19 @@ interface IGuideList {
   logoUrl: string;
   content: string;
 }
-export default function Guide() {
+
+function Guide() {
   const [currentPage, setCurrentPage] = useState(0);
   const [nextLogoRight, setNextLogoRight] = useState(0);
   const [nextLogoTop, setNextLogoTop] = useState(0);
-  const handleLogin: () => void = async () => {
-    await findNearCrops((e) => {
-      console.log(e);
-    });
+
+  const [initStatus, setInitStatus] = useState(false);
+  const userStore = useContext(UserStoreContext);
+  const handleLogin = async () => {
+    await userStore.initWithCrops();
+    setInitStatus(true);
   };
+
   const toNext: () => void = () => {
     const NextPlay = currentPage + 1 > 5 ? 5 : currentPage + 1;
     setCurrentPage(NextPlay);
@@ -134,16 +140,20 @@ export default function Guide() {
                 <View
                   className='tapButton flex items-center justify-center'
                   onClick={handleLogin}
-                  style='color: white;background-color: #34A853;'
+                  style={
+                    !initStatus ? 'color: white;background-color: #34A853;' : 'color: white;background-color: #c5c5c5;'
+                  }
                 >
-                  初始化作物
+                  {initStatus ? '初始化完毕' : '初始化作物'}
                 </View>
                 <View
                   className='tapButton mt-4 flex items-center justify-center'
                   onClick={() => {
                     Taro.navigateBack();
                   }}
-                  style='color: white;background-color: #c5c5c5;'
+                  style={
+                    initStatus ? 'color: white;background-color: #34A853;' : 'color: white;background-color: #c5c5c5;'
+                  }
                 >
                   完成教程
                 </View>
@@ -188,3 +198,5 @@ export default function Guide() {
     </View>
   );
 }
+
+export default observer(Guide);

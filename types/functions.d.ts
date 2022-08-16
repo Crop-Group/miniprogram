@@ -5,7 +5,7 @@
  * 重新封装云函数返回参数
  * @param status 0 表示失败 1 表示成功
  */
-interface CloudFunctionsResult<T> {
+export interface CloudFunctionsResult<T> {
   result: T;
   errMsg: string;
 }
@@ -13,7 +13,7 @@ interface CloudFunctionsResult<T> {
 /**
  * 用户类型
  */
-interface Users {
+export interface Users {
   nickName: string,
   avatarUrl: string,
   userID: string,
@@ -22,7 +22,7 @@ interface Users {
 /**
  * 谷物类型
  */
-interface Crops{
+export interface Crops{
   _id: string,
   name: string,
   category: string,
@@ -35,7 +35,7 @@ interface Crops{
     },
     detail: string,
   },
-  status: '种植中',
+  status: '种植中' | '已完成',
   display: false,
   logs: Array<{
       detail: string,
@@ -48,7 +48,7 @@ interface Crops{
 /**
  * 新闻返回参数
  */
-interface Article
+export interface Article
 {
     category: string,
     content: string,
@@ -62,7 +62,7 @@ interface Article
 /**
  * 初始化作物返回类型
  */
-interface InitUsers {
+export interface InitUsers {
     nickName: string,
     avatarUrl: string,
     userID: string,
@@ -75,7 +75,7 @@ interface InitUsers {
 /**
  * 查询单个收藏数据返回类型
  */
-interface SingleCollection {
+export interface SingleCollection {
     ifCollection: boolean
 }
 
@@ -98,7 +98,7 @@ type AddCropsLogPromise = Promise<CloudFunctionsResult<string>>/*** 添加作物
 type FinishCropsPromise = Promise<CloudFunctionsResult<string>>/*** 标记完成作物*/
 type FindNearCropsPromise = Promise<CloudFunctionsResult<Array<Crops>>>/*** 查询附近作物*/
 
-export 
+export
 { LoginResultPromise,
     InitUserPromise,
     ArticlePromise,
