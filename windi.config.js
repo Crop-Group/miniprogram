@@ -18,5 +18,11 @@ export default {
         primary: '#34A853',
         secondary: '#A5D1D4'
     }),
+    extend: {
+        fontSize:{
+            'title': '3.25rem',
+            'logo': '2.5rem',
+        }
+    }
   },
 }
