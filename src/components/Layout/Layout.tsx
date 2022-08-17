@@ -43,6 +43,7 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
       'justify-center': justifyCenter,
     },
     'flex',
+    'flex-1',
     'flex-col',
     'box-border',
   );
@@ -57,7 +58,7 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
     <React.Fragment>
       {background && <View className='fixed -z-1 h-full w-full'>{background}</View>}
       <View className='flex flex-col h-screen'>
-        <View style={{ paddingTop: `${menuBarElement ? 0 : statusbarHeight}px` }}>
+        <View style={{ paddingTop: `${menuBarElement ? 0 : statusbarHeight}px` }} className='flex-1 flex flex-col'>
           {menuBarElement && (
             <View
               className='sticky top-0'
