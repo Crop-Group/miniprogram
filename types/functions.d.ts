@@ -57,6 +57,7 @@ export interface Article
     index: number,
     publishTime: Date,
     title: string
+    background_image: string,
 }
 
 /**
