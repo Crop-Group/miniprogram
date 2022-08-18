@@ -17,7 +17,7 @@ function User() {
 
   useEffect(() => {
     if (userStore.isLogin) {
-      console.log('已经登录');
+      console.log('userPage:', '已经登录');
       cropsStore.fetch();
       collectionStore.fetch();
     }
