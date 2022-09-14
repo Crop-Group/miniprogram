@@ -39,7 +39,7 @@ const MyCrops = () => {
           </Swiper>
           <View className='flex flex-col justify-between h-78 -mt-78 text-white'>
             <View className='flex flex-col z-100 p-6'>
-              <View className='flex flex-row'>
+              <View className='flex flex-row justify-between'>
                 <View className='flex flex-col'>
                   <Text className='text-xl py-1'>提供生产全程追溯</Text>
                   <Text className='text-5xl font-bold py-1'>{cropsStore.length}棵</Text>
@@ -53,7 +53,7 @@ const MyCrops = () => {
               style='background: rgba(109,114,120,0.49)'
             >
               <Image
-                className='w-10 h-10 ml-6'
+                className='w-10 h-10 ml-8'
                 src={require('../../../../images/res/index/last.svg')}
                 onClick={() => {
                   setCurrentPage(currentPage - 1 ? currentPage : 0);
@@ -75,7 +75,7 @@ const MyCrops = () => {
                 onClick={() => [setAutoPlay(!autoPlay)]}
               ></Image>
               <Image
-                className='w-10 h-10 mr-6'
+                className='w-10 h-10 mr-8'
                 src={require('../../../../images/res/index/next.svg')}
                 onClick={() => {
                   setCurrentPage(
