@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite';
 import { useDidShow } from '@tarojs/taro';
 import './index.scss';
 import { Layout } from '../../components/Layout';
-import { HomeBackGround } from '../../components/Background';
 import { UserInfo } from './components/UserInfo';
 import { CropsInfo } from './components/CropsInfo';
 import { Menu } from './components/Menu';
@@ -32,12 +31,7 @@ function User() {
   });
 
   return (
-    <Layout
-      itemsCenter
-      menuBarElement={<View className='flex justify-center items-center h-full'></View>}
-      background={<HomeBackGround />}
-      showFooter
-    >
+    <Layout itemsCenter menuBarElement={<View className='flex justify-center items-center h-full'></View>} showFooter>
       <UserInfo />
       <CropsInfo
         collectionNum={userStore.isLogin ? collectionStore.length : 0}

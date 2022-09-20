@@ -3,10 +3,11 @@ import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import cls from 'classnames';
 import Taro from '@tarojs/taro';
 import { Footer } from '../Footer';
+import './index.scss';
 
 interface LayoutProps {
   menuBarElement?: React.ReactNode;
-  background?: React.ReactNode;
+  showBackGround?: boolean;
   showFooter?: boolean;
   itemsCenter?: boolean;
   justifyCenter?: boolean;
@@ -21,14 +22,15 @@ interface LayoutProps {
  *
  * itemsCenter justifyCenter 对应flex的rules
  *
+ * showBackGround 对应是否展示渐变的背景
+ *
  * showFooter 对应是否显示footer底部栏
  *
  * menuBarElement 是菜单栏的React元素
  *
- * background 是全屏背景的React元素
  */
 export default function Layout(props: LayoutProps & PropsWithChildren) {
-  const { children, itemsCenter, justifyCenter, menuBarElement, background, showFooter } = props;
+  const { children, itemsCenter, justifyCenter, menuBarElement, showBackGround, showFooter } = props;
 
   const statusbarHeight = useMemo(() => {
     const info = Taro.getSystemInfoSync();
@@ -47,6 +49,14 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
     'box-border',
   );
 
+  const bodyClass = cls(
+    {
+      background: showBackGround,
+    },
+    'flex',
+    'flex-col',
+    'h-screen',
+  );
   useEffect(() => {
     const { top, height } = Taro.getMenuButtonBoundingClientRect();
     const h = (top - statusbarHeight) * 2 + height;
@@ -55,12 +65,11 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
 
   return (
     <React.Fragment>
-      {background && <View className='fixed -z-1 h-full w-full'>{background}</View>}
-      <View className='flex flex-col h-screen'>
+      <View className={bodyClass}>
         <View style={{ paddingTop: `${menuBarElement ? 0 : statusbarHeight}px` }}>
           {menuBarElement && (
             <View
-              className='sticky top-0'
+              className='sticky top-0 z-100'
               style={{ height: `${pillHeight + statusbarHeight}px`, paddingTop: `${statusbarHeight}px`, width: '100%' }}
             >
               {menuBarElement}
