@@ -1,14 +1,14 @@
-import Taro from '@tarojs/taro';
-import { View, Text, Image, ScrollView } from '@tarojs/components';
+import Taro, { usePageScroll } from '@tarojs/taro';
+import { View, Text, Image } from '@tarojs/components';
 import { observer } from 'mobx-react-lite';
 import { useState, useContext, useEffect } from 'react';
 import { Layout } from '../../components/Layout';
-import { HomeBackGround } from '../../components/Background';
 import { UserStoreContext } from '../../store/providers';
 import './index.scss';
 import { getNews } from '../../utils/index';
 import { HomeImage } from './components/HomeImage/index';
 import { MyCrops } from './components/MyCrops/index';
+import { News } from './components/News/index';
 
 const LogoBar = (props) => {
   const { barOpacity } = props;
@@ -35,10 +35,6 @@ function Home() {
   const userStore = useContext(UserStoreContext);
   const [barOpacity, setBarOpacity] = useState(0);
 
-  const handleScroll = (event) => {
-    const opacity = event.detail.scrollTop / 200;
-    setBarOpacity(opacity);
-  };
   const updateNews = async () => {
     const news = await getNews();
     setNewsList(news.result);
@@ -56,56 +52,61 @@ function Home() {
     updateNews();
   }, [userStore.isLogin]);
 
+  usePageScroll((res) => {
+    const opacity = res.scrollTop / 200;
+    setBarOpacity(opacity);
+  });
+
   return (
-    <Layout itemsCenter menuBarElement={<LogoBar barOpacity={barOpacity} />} background={<HomeBackGround />}>
-      <ScrollView scrollY showScrollbar={false} enhanced onScroll={handleScroll} className='h-screen'>
-        <View className='w-full justify-between mt-16 flex flex-row items-center'>
-          <View className='flex flex-col'>
-            <Text className='text-title font-bold ml-12'>数字化生产</Text>
-            <Text className='text-title font-bold ml-12'>全生命溯源工具</Text>
-          </View>
-          <View
-            className='bg-secondary rounded-l-4xl py-2 px-4 flex flex-row justify-center items-center'
-            onClick={() => {
-              Taro.navigateTo({
-                url: '/pages/guide/index',
-              });
-            }}
-          >
-            <Image className='w-12 h-12' src={require('../../images/res/index/book.svg')}></Image>
-            <Text className='text-white font-bold text-2xl'>新手引导</Text>
-          </View>
+    <Layout itemsCenter menuBarElement={<LogoBar barOpacity={barOpacity} />} showBackGround showFooter>
+      <View className='w-full justify-between mt-16 flex flex-row items-center'>
+        <View className='flex flex-col'>
+          <Text className='text-title font-bold ml-12'>数字化生产</Text>
+          <Text className='text-title font-bold ml-12'>全生命溯源工具</Text>
         </View>
         <View
-          className='flex flex-row w-full justify-start mt-10 items-center'
+          className='bg-secondary rounded-l-4xl py-2 px-4 flex flex-row justify-center items-center'
           onClick={() => {
-            if (!userStore.isLogin) {
-              console.log('click login');
-              userStore.login();
-            }
+            Taro.navigateTo({
+              url: '/pages/guide/index',
+            });
           }}
         >
-          <View className='ml-12'>
-            <Image
-              className='w-30 h-30 rounded-full border-white border-solid border-4'
-              mode='aspectFill'
-              src={userInfo.avatarUrl}
-            ></Image>
-          </View>
-          <View className='flex flex-col ml-8'>
-            <Text className='font-bold text-3xl'>{userInfo.nickName}</Text>
-            <Text className='text-2xl opacity-50 mt-2'>{userInfo.userID}</Text>
-          </View>
+          <Image className='w-12 h-12' src={require('../../images/res/index/book.svg')}></Image>
+          <Text className='text-white font-bold text-2xl'>新手引导</Text>
         </View>
-        <HomeImage
-          homeImage={newsList.length ? newsList[0].background_image : undefined}
-          storyDescription={newsList.length ? newsList[0].description : undefined}
-        />
-        <View>
-          <MyCrops />
+      </View>
+      <View
+        className='flex flex-row w-full justify-start mt-10 items-center'
+        onClick={() => {
+          if (!userStore.isLogin) {
+            console.log('click login');
+            userStore.login();
+          }
+        }}
+      >
+        <View className='ml-12'>
+          <Image
+            className='w-30 h-30 rounded-full border-white border-solid border-4'
+            mode='aspectFill'
+            src={userInfo.avatarUrl}
+          ></Image>
         </View>
-        <View className='h-96'></View>
-      </ScrollView>
+        <View className='flex flex-col ml-8'>
+          <Text className='font-bold text-3xl'>{userInfo.nickName}</Text>
+          <Text className='text-2xl opacity-50 mt-2'>{userInfo.userID}</Text>
+        </View>
+      </View>
+      <HomeImage
+        homeImage={newsList.length ? newsList[0].background_image : undefined}
+        storyDescription={newsList.length ? newsList[0].description : undefined}
+      />
+      <View>
+        <MyCrops />
+      </View>
+      <View>
+        <News newsList={newsList} />
+      </View>
     </Layout>
   );
 }
