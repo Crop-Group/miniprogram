@@ -11,6 +11,7 @@ interface LayoutProps {
   showFooter?: boolean;
   itemsCenter?: boolean;
   justifyCenter?: boolean;
+  enableScroll?: boolean;
 }
 
 /**
@@ -28,9 +29,10 @@ interface LayoutProps {
  *
  * menuBarElement 是菜单栏的React元素
  *
+ * enableScroll 对应页面是否为滚动
  */
 export default function Layout(props: LayoutProps & PropsWithChildren) {
-  const { children, itemsCenter, justifyCenter, menuBarElement, showBackGround, showFooter } = props;
+  const { children, itemsCenter, justifyCenter, menuBarElement, showBackGround, showFooter, enableScroll } = props;
 
   const statusbarHeight = useMemo(() => {
     const info = Taro.getSystemInfoSync();
@@ -52,10 +54,12 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
   const bodyClass = cls(
     {
       background: showBackGround,
+      // 根据页面是否滚动确定height范围
+      'h-screen': !enableScroll,
+      'h-full': enableScroll,
     },
     'flex',
     'flex-col',
-    'h-screen',
   );
   useEffect(() => {
     const { top, height } = Taro.getMenuButtonBoundingClientRect();
