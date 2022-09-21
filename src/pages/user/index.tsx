@@ -31,7 +31,12 @@ function User() {
   });
 
   return (
-    <Layout itemsCenter menuBarElement={<View className='flex justify-center items-center h-full'></View>} showFooter>
+    <Layout
+      itemsCenter
+      menuBarElement={<View className='flex justify-center items-center h-full'></View>}
+      showFooter
+      showBackGround
+    >
       <UserInfo />
       <CropsInfo
         collectionNum={userStore.isLogin ? collectionStore.length : 0}

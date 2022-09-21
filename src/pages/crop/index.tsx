@@ -16,7 +16,12 @@ export default class Index extends Component {
 
   render() {
     return (
-      <Layout itemsCenter menuBarElement={<View className='flex justify-center items-center h-full'>养谷</View>}>
+      <Layout
+        itemsCenter
+        menuBarElement={<View className='flex justify-center items-center h-full'>养谷</View>}
+        showBackGround
+        showFooter
+      >
         <Text>Hello world!</Text>
       </Layout>
     );
