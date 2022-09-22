@@ -58,7 +58,7 @@ function Home() {
   });
 
   return (
-    <Layout itemsCenter menuBarElement={<LogoBar barOpacity={barOpacity} />} showBackGround showFooter>
+    <Layout itemsCenter menuBarElement={<LogoBar barOpacity={barOpacity} />} showBackGround showFooter enableScroll>
       <View className='w-full justify-between mt-16 flex flex-row items-center'>
         <View className='flex flex-col'>
           <Text className='text-title font-bold ml-12'>数字化生产</Text>
@@ -101,12 +101,8 @@ function Home() {
         homeImage={newsList.length ? newsList[0].background_image : undefined}
         storyDescription={newsList.length ? newsList[0].description : undefined}
       />
-      <View>
-        <MyCrops />
-      </View>
-      <View>
-        <News newsList={newsList} />
-      </View>
+      <MyCrops />
+      <News newsList={newsList} />
     </Layout>
   );
 }
