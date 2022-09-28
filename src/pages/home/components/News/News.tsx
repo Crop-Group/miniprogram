@@ -10,7 +10,6 @@ const Item = (props) => {
   const colorSet = ['#0091FF', '#6D609C', '#C53E3E', '#6D7278', '#44D7B6', '#B620E0'];
   return (
     <View
-      style='width: 92%'
       onClick={() => {
         console.log(_id);
       }}
@@ -29,9 +28,9 @@ const Item = (props) => {
 const News = (props) => {
   const { newsList } = props;
   return (
-    <View>
+    <View className='w-162'>
       <PartHeader title='封面故事' tabColor='#f38a11'></PartHeader>
-      <View className='ml-14'>
+      <View className='w-full flex flex-col'>
         {newsList.map(({ title, category, _createTime, _id }, index) => {
           console.log(newsList);
           return (

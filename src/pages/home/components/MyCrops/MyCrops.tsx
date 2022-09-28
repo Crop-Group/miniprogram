@@ -19,7 +19,7 @@ const MyCrops = () => {
     <View>
       <PartHeader title='我的羊谷' tabColor='#34A853'></PartHeader>
       <View className='w-full flex flex-row'>
-        <View className='ml-12'>
+        <View className='ml-2'>
           <Swiper
             className='h-78 w-78 rounded-6xl -z-0'
             style={!cropsStore.crops.length ? 'background: #49B967' : ''}
