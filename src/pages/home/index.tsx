@@ -100,6 +100,7 @@ function Home() {
       <HomeImage
         homeImage={newsList.length ? newsList[0].background_image : undefined}
         storyDescription={newsList.length ? newsList[0].description : undefined}
+        _id={newsList.length ? newsList[0]._id : undefined}
       />
       <MyCrops />
       <News newsList={newsList} />
