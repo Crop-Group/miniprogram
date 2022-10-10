@@ -2,6 +2,9 @@ export default defineAppConfig({
   pages: [
     'pages/home/index',
     'pages/crop/index',
+    'pages/crop/detail/index',
+    'pages/crop/qrcode/index',
+    'pages/crop/map/index',
     'pages/user/index',
     'pages/guide/index',
     'pages/user/about/index',
