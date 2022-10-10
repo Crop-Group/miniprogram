@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro';
 import { View, Text, Image } from '@tarojs/components';
 import { observer } from 'mobx-react-lite';
 import './index.scss';
@@ -17,7 +18,14 @@ function Index() {
         <Swiper />
       </View>
       {/* 圆圈加号 */}
-      <View className='icon-add absolute bottom-20 right-0 mr-1/20 rounded-full w-24 h-24 flex justify-center items-center'>
+      <View
+        className='icon-add absolute bottom-20 right-0 mr-1/20 rounded-full w-24 h-24 flex justify-center items-center'
+        onClick={() => {
+          Taro.navigateTo({
+            url: `/pages/crop/add/index`,
+          });
+        }}
+      >
         <Image src={require('../../images/res/crop/add.svg')} mode='widthFix' className='w-1/2' />
       </View>
     </Layout>

@@ -5,6 +5,7 @@ export default defineAppConfig({
     'pages/crop/detail/index',
     'pages/crop/qrcode/index',
     'pages/crop/map/index',
+    'pages/crop/add/index',
     'pages/user/index',
     'pages/guide/index',
     'pages/user/about/index',
