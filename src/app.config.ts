@@ -8,6 +8,7 @@ export default defineAppConfig({
     'pages/crop/add/index',
     'pages/user/index',
     'pages/guide/index',
+    'pages/article/index',
     'pages/user/about/index',
     'pages/user/about/contract/index',
   ],
