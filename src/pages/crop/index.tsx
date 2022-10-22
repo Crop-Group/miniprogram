@@ -3,13 +3,12 @@ import { View, Text, Image } from '@tarojs/components';
 import { observer } from 'mobx-react-lite';
 import './index.scss';
 import { Layout } from '../../components/Layout';
-import { HomeBackGround } from '../../components/Background';
 import { Weather } from './components/Weather';
 import { Swiper } from './components/Swiper';
 
 function Index() {
   return (
-    <Layout background={<HomeBackGround />} showFooter>
+    <Layout showBackGround showFooter>
       <View className='w-9/10 ml-1/20 mr-1/20 mt-4'>
         <Weather />
         <View className='py-2'></View>

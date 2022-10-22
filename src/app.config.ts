@@ -27,6 +27,7 @@ export default defineAppConfig({
     },
   },
   requiredPrivateInfos: ['chooseLocation', 'getFuzzyLocation'],
+  enablePullDownRefresh: true,
   tabBar: {
     selectedColor: '#34A853',
     borderStyle: 'white',
