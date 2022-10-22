@@ -62,6 +62,7 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
     'flex',
     'flex-col',
   );
+
   useEffect(() => {
     const { top, height } = Taro.getMenuButtonBoundingClientRect();
     const h = (top - statusbarHeight) * 2 + height;
@@ -71,17 +72,16 @@ export default function Layout(props: LayoutProps & PropsWithChildren) {
   return (
     <React.Fragment>
       <View className={bodyClass}>
-        <View style={{ paddingTop: `${menuBarElement ? 0 : statusbarHeight}px` }}>
-          {menuBarElement && (
-            <View
-              className='sticky top-0 z-100'
-              style={{ height: `${pillHeight + statusbarHeight}px`, paddingTop: `${statusbarHeight}px`, width: '100%' }}
-            >
-              {menuBarElement}
-            </View>
-          )}
-          <View className={viewClass}>{children}</View>
-        </View>
+        <View style={{ height: `${menuBarElement ? 0 : statusbarHeight}px` }} />
+        {menuBarElement && (
+          <View
+            className='sticky top-0 z-100'
+            style={{ height: `${pillHeight + statusbarHeight}px`, paddingTop: `${statusbarHeight}px`, width: '100%' }}
+          >
+            {menuBarElement}
+          </View>
+        )}
+        <View className={viewClass}>{children}</View>
         <View className='mt-auto'>{showFooter && <Footer />}</View>
       </View>
     </React.Fragment>
