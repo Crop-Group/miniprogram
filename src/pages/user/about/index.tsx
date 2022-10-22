@@ -15,7 +15,7 @@ export default function About() {
     };
   });
   return (
-    <Layout menuBarElement={<BackNavigate darkMode />}>
+    <Layout showBackGround menuBarElement={<BackNavigate darkMode />}>
       <view className='logo-box bg-white rounded-full flex flex-col items-center justify-center ml-20 mt-20'>
         <Image className='logo' src={Logo}></Image>
       </view>
