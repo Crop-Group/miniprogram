@@ -2,14 +2,16 @@ import solarLunar from 'solarLunar';
 import { useState, useEffect } from 'react';
 import { View, Text, Image } from '@tarojs/components';
 import cls from 'classnames';
+import Taro from '@tarojs/taro';
 
 interface storyInfo {
   homeImage?: string;
   storyDescription?: string;
+  _id: string;
 }
 
 const HomeImage = (props: storyInfo) => {
-  const { homeImage, storyDescription } = props;
+  const { homeImage, storyDescription, _id } = props;
   const [solar2lunar, setSolar2lunarData] = useState({
     cDay: '--',
     gzYear: '--',
@@ -32,7 +34,14 @@ const HomeImage = (props: storyInfo) => {
     setSolar2lunarData(solar2lunarData);
   }, []);
   return (
-    <View className='mt-6 flex flex-col items-center'>
+    <View
+      className='mt-6 flex flex-col items-center'
+      onClick={() => {
+        Taro.navigateTo({
+          url: '/pages/article/index?_id=' + _id,
+        });
+      }}
+    >
       <Image
         className={loadingClass}
         mode='aspectFill'

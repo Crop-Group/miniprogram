@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import Taro from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import { observer } from 'mobx-react-lite';
 import './index.scss';
@@ -11,6 +12,9 @@ const Item = (props) => {
   return (
     <View
       onClick={() => {
+        Taro.navigateTo({
+          url: '/pages/article/index?_id=' + _id,
+        });
         console.log(_id);
       }}
     >
@@ -32,7 +36,6 @@ const News = (props) => {
       <PartHeader title='封面故事' tabColor='#f38a11'></PartHeader>
       <View className='w-full flex flex-col'>
         {newsList.map(({ title, category, _createTime, _id }, index) => {
-          console.log(newsList);
           return (
             <Item
               title={title}
