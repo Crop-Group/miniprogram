@@ -20,7 +20,9 @@ const config = {
   ],
   defineConstants: {},
   copy: {
-    patterns: [],
+    patterns: [
+      { from: 'src/images/', to: 'dist/images' },
+    ],
     options: {},
   },
   framework: 'react',
