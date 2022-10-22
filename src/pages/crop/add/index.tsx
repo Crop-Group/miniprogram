@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite';
 import dayjs from 'dayjs';
 import Taro from '@tarojs/taro';
 import { Layout } from '../../../components/Layout';
-import { HomeBackGround } from '../../../components/Background';
 import { CropsStoreContext, UserStoreContext } from '../../../store/providers';
 import './index.scss';
 import Line from './Line';
@@ -62,7 +61,7 @@ const PageAddCrop = () => {
   };
 
   return (
-    <Layout background={<HomeBackGround />} menuBarElement={<BackNavigate title='添加作物'></BackNavigate>} itemsCenter>
+    <Layout showBackGround menuBarElement={<BackNavigate title='添加作物'></BackNavigate>} itemsCenter>
       <View
         className='w-9/10 m-2 h-64 flex justify-center items-center bg-gray-400 rounded-xl shadow-2xl'
         style={{ height: '390rpx', opacity: imgPath ? '1' : '0.6' }}

@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import { QRCode } from 'taro-code';
 import { Layout } from '../../../components/Layout';
 import { Footer } from '../../../components/Footer';
-import { HomeBackGround } from '../../../components/Background';
 import { CropsStoreContext, UserStoreContext } from '../../../store/providers';
 import { BackNavigate } from '../../../components/BackNavigate';
 
@@ -27,7 +26,7 @@ const QRCodePage = () => {
   }
 
   return (
-    <Layout background={<HomeBackGround />} menuBarElement={<View></View>} itemsCenter>
+    <Layout showBackGround menuBarElement={<View></View>} itemsCenter>
       <View className='flex flex-col relative rounded-3xl shadow-xl p-8 bg-white w-8/10 mt-18 mb-8'>
         <View className='absolute bg-white top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full flex flex-col w-36 h-36 items-center justify-center'>
           <Image src={crop?.details.logs[0].imgUrl} mode='scaleToFill' className='left-1/2 h-32 w-32 rounded-full' />
