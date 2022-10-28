@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components';
 import { observer } from 'mobx-react-lite';
+import Taro from '@tarojs/taro';
 import './index.scss';
 import { PartHeader } from '../PartHeader/index';
 import { userStore, cropsStore } from '../../../../store/providers';
@@ -93,7 +94,11 @@ const MyCrops = () => {
           <View
             className='bg-black rounded-6xl w-78 h-36 flex items-center justify-center manage-button'
             style='background: #44D7B6'
-            onClick={() => {}}
+            onClick={() => {
+              Taro.navigateTo({
+                url: '/pages/crop/add/index',
+              });
+            }}
           >
             <Image className='w-22 h-22' src={require('../../../../images/res/index/manage.svg')} />
             <Text className='font-2xl text-white p-4 text-bold '>新增作物</Text>
@@ -101,7 +106,11 @@ const MyCrops = () => {
           <View
             className='bg-black rounded-6xl w-78 h-36 flex items-center justify-center plus-button'
             style='background: #0091FF'
-            onClick={() => {}}
+            onClick={() => {
+              Taro.switchTab({
+                url: '/pages/crop/index',
+              });
+            }}
           >
             <Image className='w-20 h-20' src={require('../../../../images/res/index/plus.svg')} />
             <Text className='font-2xl text-white p-4 text-bold'>追加记录</Text>
