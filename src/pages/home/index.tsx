@@ -98,11 +98,13 @@ function Home() {
           <Text className='text-2xl opacity-50 mt-2'>{userInfo.userID}</Text>
         </View>
       </View>
+
       <HomeImage
         homeImage={newsList?.length ? newsList[0].background_image : undefined}
         storyDescription={newsList?.length ? newsList[0].description : undefined}
         _id={newsList?.length ? newsList[0]._id : undefined}
       />
+
       <MyCrops />
       {newsList && <News newsList={newsList} />}
     </Layout>

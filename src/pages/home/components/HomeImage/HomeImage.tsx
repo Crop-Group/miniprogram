@@ -12,27 +12,21 @@ interface storyInfo {
 
 const HomeImage = (props: storyInfo) => {
   const { homeImage, storyDescription, _id } = props;
-  const [solar2lunar, setSolar2lunarData] = useState({
-    cDay: '--',
-    gzYear: '--',
-    monthCn: '--',
-    ncWeek: '--',
-    dayCn: '--',
-  });
-  const [isLoading, setIsLoading] = useState(true);
-  const loadingClass = cls('rounded-7xl', 'w-165', 'h-190', 'relative', 'caret-gray-500', {
-    'bg-loading': isLoading,
-    'animate-pulse': !isLoading,
-  });
-  useEffect(() => {
+  const [solar2lunar, setSolar2lunarData] = useState(() => {
     const localDate = new Date();
     const solar2lunarData = solarLunar.solar2lunar(
       localDate.getFullYear(),
       localDate.getMonth() + 1,
       localDate.getDate(),
     ); // 输入的日子为公历
-    setSolar2lunarData(solar2lunarData);
-  }, []);
+    return solar2lunarData;
+  });
+  const [isLoading, setIsLoading] = useState(true);
+  const loadingClass = cls('rounded-7xl', 'w-165', 'h-190', 'relative', 'caret-gray-500', {
+    'bg-loading': isLoading,
+    'animate-pulse': !isLoading,
+  });
+  useEffect(() => {}, []);
   return (
     <View
       className='mt-6 flex flex-col items-center'
