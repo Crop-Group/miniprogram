@@ -31,7 +31,7 @@ const MyCrops = () => {
           >
             {cropsStore.crops.map((e) => {
               return (
-                <SwiperItem className='rounded-6xl'>
+                <SwiperItem key={e.details._id} className='rounded-6xl'>
                   <Image className='rounded-6xl' mode='aspectFill' src={e.details.logs[0].imgUrl}></Image>
                 </SwiperItem>
               );
