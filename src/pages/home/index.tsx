@@ -1,5 +1,6 @@
 import Taro, { usePageScroll } from '@tarojs/taro';
 import { View, Text, Image } from '@tarojs/components';
+import { Article } from 'types/functions';
 import { observer } from 'mobx-react-lite';
 import { useState, useContext, useEffect } from 'react';
 import { Layout } from '../../components/Layout';
@@ -31,7 +32,7 @@ function Home() {
       'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
     userID: '畅享数字化生产工具',
   });
-  const [newsList, setNewsList] = useState([]);
+  const [newsList, setNewsList] = useState<Array<Article> | undefined>(undefined);
   const userStore = useContext(UserStoreContext);
   const [barOpacity, setBarOpacity] = useState(0);
 
@@ -98,12 +99,12 @@ function Home() {
         </View>
       </View>
       <HomeImage
-        homeImage={newsList.length ? newsList[0].background_image : undefined}
-        storyDescription={newsList.length ? newsList[0].description : undefined}
-        _id={newsList.length ? newsList[0]._id : undefined}
+        homeImage={newsList?.length ? newsList[0].background_image : undefined}
+        storyDescription={newsList?.length ? newsList[0].description : undefined}
+        _id={newsList?.length ? newsList[0]._id : undefined}
       />
       <MyCrops />
-      <News newsList={newsList} />
+      {newsList && <News newsList={newsList} />}
     </Layout>
   );
 }

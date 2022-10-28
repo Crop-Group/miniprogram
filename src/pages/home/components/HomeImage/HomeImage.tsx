@@ -19,7 +19,7 @@ const HomeImage = (props: storyInfo) => {
     ncWeek: '--',
     dayCn: '--',
   });
-  const [isLoading, setIsloading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const loadingClass = cls('rounded-7xl', 'w-165', 'h-190', 'relative', 'caret-gray-500', {
     'bg-loading': isLoading,
     'animate-pulse': !isLoading,
@@ -47,9 +47,9 @@ const HomeImage = (props: storyInfo) => {
         mode='aspectFill'
         src={homeImage ?? ''}
         onLoad={() => {
-          setIsloading(false);
+          setIsLoading(false);
           setTimeout(() => {
-            setIsloading(true);
+            setIsLoading(true);
           }, 2000);
         }}
       >
