@@ -57,7 +57,7 @@ const MyCrops = () => {
                 className='w-10 h-10 ml-8'
                 src={require('../../../../images/res/index/last.svg')}
                 onClick={() => {
-                  setCurrentPage(currentPage - 1 ? currentPage : 0);
+                  setCurrentPage((currentPage - 1) % currentPage);
                   // setTimeout(()=>{
                   //     console.log(currentPage)
                   //     setCurrentPage(currentPage+1)
@@ -79,9 +79,7 @@ const MyCrops = () => {
                 className='w-10 h-10 mr-8'
                 src={require('../../../../images/res/index/next.svg')}
                 onClick={() => {
-                  setCurrentPage(
-                    currentPage + 1 > cropsStore.crops.length - 1 ? cropsStore.crops.length - 1 : currentPage + 1,
-                  );
+                  setCurrentPage((currentPage + 1) % cropsStore.crops.length);
                 }}
               >
                 {' '}
