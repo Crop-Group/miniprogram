@@ -1,5 +1,5 @@
-import { useLoad, usePageScroll, useShareAppMessage } from '@tarojs/taro';
-import { useState } from 'react';
+import { useLoad, usePageScroll, useRouter, useShareAppMessage } from '@tarojs/taro';
+import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import { Article as ArticleType } from 'types/functions';
 import { observer } from 'mobx-react-lite';
@@ -48,10 +48,12 @@ const Article = () => {
     });
   };
   const colorSet = ['#0091FF', '#6D609C', '#C53E3E', '#6D7278', '#44D7B6', '#B620E0'];
-  useLoad((props) => {
-    setId(props._id);
-    updateNews(props._id);
-  });
+  const router = useRouter();
+  useEffect(() => {
+    setId(router.params._id ?? '');
+    updateNews(router.params._id ?? '');
+  }, [router.params._id]);
+
   return (
     <Layout menuBarElement={<BackNavigate darkMode />} showFooter enableScroll>
       <View>
