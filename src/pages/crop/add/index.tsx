@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import Taro from '@tarojs/taro';
 import { Layout } from '../../../components/Layout';
 import { CropsStoreContext, UserStoreContext } from '../../../store/providers';
-import './index.scss';
 import Line from './Line';
 import { BackNavigate } from '../../../components/BackNavigate';
 
@@ -78,7 +77,7 @@ const PageAddCrop = () => {
         {!imgPath && <View className='text-white'>点击上传图片</View>}
         {imgPath && <Image className='h-full w-full rounded-xl' mode='aspectFill' src={imgPath} />}
       </View>
-      <View className='form-add w-9/10 flex-grow flex flex-col mt-6 rounded-3xl p-8'>
+      <View className='shadow w-9/10 flex-grow flex flex-col mt-6 rounded-3xl p-8'>
         <Label className='font-medium mb-4'>名称</Label>
         <Input
           type='text'
