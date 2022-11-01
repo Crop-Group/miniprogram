@@ -62,7 +62,7 @@ const PageAddCrop = () => {
   return (
     <Layout showBackGround menuBarElement={<BackNavigate title='添加作物'></BackNavigate>} itemsCenter>
       <View
-        className='w-9/10 m-2 h-64 flex justify-center items-center bg-gray-400 rounded-xl shadow-2xl'
+        className='w-9/10 m-2 h-64 flex justify-center items-center bg-gray-400 rounded-xl shadow-xl'
         style={{ height: '390rpx', opacity: imgPath ? '1' : '0.6' }}
         onClick={async () => {
           const result = await Taro.chooseImage({
@@ -77,7 +77,7 @@ const PageAddCrop = () => {
         {!imgPath && <View className='text-white'>点击上传图片</View>}
         {imgPath && <Image className='h-full w-full rounded-xl' mode='aspectFill' src={imgPath} />}
       </View>
-      <View className='shadow w-9/10 flex-grow flex flex-col mt-6 rounded-3xl p-8'>
+      <View className='shadow-xl shadow-gray-400 w-9/10 flex-grow flex flex-col mt-6 rounded-3xl p-8'>
         <Label className='font-medium mb-4'>名称</Label>
         <Input
           type='text'
