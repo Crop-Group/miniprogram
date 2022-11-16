@@ -1,0 +1,22 @@
+.card {
+  box-shadow: 0 4Px 6Px -1Px rgb(0 0 0 / 0.1), 0 2Px 4Px -2Px rgb(0 0 0 / 0.1);
+  background-color: #ffffff;
+  // border-radius: 10px;
+}
+
+// need optimization
+.underline {
+  width: 90%;
+  background: black;
+  height: 1rpx;
+  transform: scaleY(0.5);
+  opacity: 0.1;
+}
+
+.banner-img {
+  height: 500px;
+}
+
+.icon-tool {
+  box-shadow: 0 4Px 6Px -1Px rgb(0 0 0 / 0.1), 0 2Px 4Px -2Px rgb(0 0 0 / 0.1);
+}

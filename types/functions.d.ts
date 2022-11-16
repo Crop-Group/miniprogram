@@ -50,13 +50,16 @@ export interface Crops{
  */
 export interface Article
 {
+    _id: string
     category: string,
     content: string,
     description: string,
     imgUrl: string,
     index: number,
-    publishTime: Date,
+    _createTime: Date,
+    publishTime?: string,
     title: string
+    background_image: string,
 }
 
 /**

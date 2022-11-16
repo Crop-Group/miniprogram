@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import Taro from '@tarojs/taro';
 import './index.scss';
-import { findNearCrops } from '../../utils/index';
 import { UserStoreContext } from '../../store/providers';
 
 interface IGuideList {

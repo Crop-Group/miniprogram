@@ -72,7 +72,8 @@
     "mobx-react": "^7.5.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "solarlunar": "^2.0.7"
+    "solarlunar": "^2.0.7",
+    "taro-code": "^3.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

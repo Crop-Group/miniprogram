@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite';
 import { useDidShow } from '@tarojs/taro';
 import './index.scss';
 import { Layout } from '../../components/Layout';
-import { HomeBackGround } from '../../components/Background';
 import { UserInfo } from './components/UserInfo';
 import { CropsInfo } from './components/CropsInfo';
 import { Menu } from './components/Menu';
@@ -17,7 +16,7 @@ function User() {
 
   useEffect(() => {
     if (userStore.isLogin) {
-      console.log('已经登录');
+      console.log('userPage:', '已经登录');
       cropsStore.fetch();
       collectionStore.fetch();
     }
@@ -35,8 +34,8 @@ function User() {
     <Layout
       itemsCenter
       menuBarElement={<View className='flex justify-center items-center h-full'></View>}
-      background={<HomeBackGround />}
       showFooter
+      showBackGround
     >
       <UserInfo />
       <CropsInfo

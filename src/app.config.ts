@@ -2,8 +2,13 @@ export default defineAppConfig({
   pages: [
     'pages/home/index',
     'pages/crop/index',
+    'pages/crop/detail/index',
+    'pages/crop/qrcode/index',
+    'pages/crop/map/index',
+    'pages/crop/add/index',
     'pages/user/index',
     'pages/guide/index',
+    'pages/article/index',
     'pages/user/about/index',
     'pages/user/about/contract/index',
   ],
@@ -23,6 +28,7 @@ export default defineAppConfig({
     },
   },
   requiredPrivateInfos: ['chooseLocation', 'getFuzzyLocation'],
+  enablePullDownRefresh: true,
   tabBar: {
     selectedColor: '#34A853',
     borderStyle: 'white',
