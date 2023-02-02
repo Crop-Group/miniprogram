@@ -1,0 +1,42 @@
+.near-crops-card
+{
+  background: white;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  margin-top: 25px;
+  margin-left: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 97%
+  box-shadow 0 0 36px -25px #161817;
+}
+.category-container
+{
+  display: flex;
+  color: #26B46E;
+  font-weight: bold;
+  border: 2px #26B46E solid;
+  border-radius: 15px;
+  padding: 0px 5px 0px 5px;
+  margin-left: 10px;
+  margin-bottom: 6px;
+  font-size: 8pt;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.logs-container
+{
+  background: #0091ff38;
+  border-radius: 5.13px;
+  font-size: 8pt;
+  display: flex;
+  color: #3b88c3;
+  align-items: center;
+  padding: 3px 14px 3px 14px;
+  margin-right: 10px;
+  font-weight: bold;
+  justify-content: center;
+}
