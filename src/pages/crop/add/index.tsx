@@ -38,6 +38,7 @@ const PageAddCrop = () => {
         Number(location.latitude),
         Number(location.longitude),
         location?.address,
+        CATEGORY[categoryIndex],
       );
       await Taro.showToast({
         title: '添加成功',

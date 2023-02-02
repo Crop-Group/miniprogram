@@ -69,8 +69,9 @@ export class CropsStore {
     latitude: number,
     longitude: number,
     location: string,
+    category: string,
   ) {
-    const { result } = await addSingleCrop(name, userID, imgUrl, endTime, latitude, longitude, location);
+    const { result } = await addSingleCrop(name, userID, imgUrl, endTime, latitude, longitude, location, category);
     if (result) {
       await this.fetch();
     }
