@@ -45,7 +45,7 @@ function Home() {
 
   const updateNearByCrops = async () => {
     const _ = await findNearCrops();
-    setNearByCrops(nearByCrops.result);
+    setNearByCrops(_.result);
   };
 
   useEffect(() => {
