@@ -1,15 +1,16 @@
 import Taro, { usePageScroll } from '@tarojs/taro';
 import { View, Text, Image } from '@tarojs/components';
-import { Article } from 'types/functions';
+import { Article, Crops } from 'types/functions';
 import { observer } from 'mobx-react-lite';
 import { useState, useContext, useEffect } from 'react';
 import { Layout } from '../../components/Layout';
 import { UserStoreContext } from '../../store/providers';
 import './index.scss';
-import { getNews } from '../../utils/index';
+import { getNews, findNearCrops } from '../../utils/index';
 import { HomeImage } from './components/HomeImage/index';
 import { MyCrops } from './components/MyCrops/index';
 import { News } from './components/News/index';
+import { NearByCrops } from './components/NearByCrops/index';
 
 const LogoBar = (props) => {
   const { barOpacity } = props;
@@ -35,10 +36,16 @@ function Home() {
   const [newsList, setNewsList] = useState<Array<Article> | undefined>(undefined);
   const userStore = useContext(UserStoreContext);
   const [barOpacity, setBarOpacity] = useState(0);
+  const [nearByCrops, setNearByCrops] = useState<Array<Crops> | undefined>(undefined);
 
   const updateNews = async () => {
     const news = await getNews();
     setNewsList(news.result);
+  };
+
+  const updateNearByCrops = async () => {
+    const _ = await findNearCrops();
+    setNearByCrops(nearByCrops.result);
   };
 
   useEffect(() => {
@@ -51,6 +58,7 @@ function Home() {
       });
     }
     updateNews();
+    updateNearByCrops();
   }, [userStore.isLogin]);
 
   usePageScroll((res) => {
@@ -106,7 +114,8 @@ function Home() {
       />
 
       <MyCrops />
-      {newsList && <News newsList={newsList} />}
+      {nearByCrops?.length && <NearByCrops nearByCrops={nearByCrops} />}
+      {newsList?.length && <News newsList={newsList} />}
     </Layout>
   );
 }
