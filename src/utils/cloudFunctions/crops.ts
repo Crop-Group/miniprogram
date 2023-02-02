@@ -85,6 +85,7 @@ const addSingleCrop = async (
   latitude: number,
   longitude: number,
   location: string,
+  category: string,
 ): AddCropsPromise => {
   const _ = await Taro.cloud.uploadFile({
     cloudPath: `tmp/${userID}-${new Date().getTime()}.png`,
@@ -100,6 +101,7 @@ const addSingleCrop = async (
         name: name,
         imgUrl: _.fileID,
         userID: userID,
+        category: category,
         startTime: new Date(),
         endTime: endTime,
         latitude: latitude,

@@ -1,7 +1,6 @@
 import Taro, { useShareAppMessage } from '@tarojs/taro';
 import { View, Text, Image, Button } from '@tarojs/components';
 import { Layout } from '../../../components/Layout';
-import { HomeBackGround } from '../../../components/Background';
 import Logo from '../../../images/bin/logo.svg';
 import ContactLogo from '../../../images/res/user/about/contact.svg';
 import ShareLogo from '../../../images/res/user/about/share.svg';
@@ -16,7 +15,7 @@ export default function About() {
     };
   });
   return (
-    <Layout menuBarElement={<BackNavigate darkMode />} background={<HomeBackGround />}>
+    <Layout showBackGround menuBarElement={<BackNavigate darkMode />}>
       <view className='logo-box bg-white rounded-full flex flex-col items-center justify-center ml-20 mt-20'>
         <Image className='logo' src={Logo}></Image>
       </view>

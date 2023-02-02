@@ -1,0 +1,23 @@
+.card {
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 1px 13px -3px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.qr-code-card {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.year-text {
+  font-size: 8pt;
+}
+
+.month-day-text {
+  font-size: 14pt;
+  font-weight: 500;
+}
+
+.remaining-day-text {
+  font-size: 10pt;
+}
